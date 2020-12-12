@@ -24,4 +24,6 @@
 
 ### 此处实现的网络结构：
 
-![](https://
+![](https://raw.githubusercontent.com/zdqzyx/images/master/blog/text_classification_images/TextAttBiRNN_network_structure.png)
+
+> 这里实现的Attention是将GRU各个ste
