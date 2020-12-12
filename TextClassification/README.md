@@ -19,4 +19,9 @@
 
 ## [BiRNN+Attention](./imp_by_tensorflow2/TextBiRNNAtt/text_birnn_att.py)
 
-### 论
+### 论文
+> 此处对于注意力机制的实现参照了论文 [Feed-Forward Networks with Attention Can Solve Some Long-Term Memory Problems](https://arxiv.org/pdf/1512.08756.pdf)
+
+### 此处实现的网络结构：
+
+![](https://
