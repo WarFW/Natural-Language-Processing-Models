@@ -26,4 +26,7 @@
 
 ![](https://raw.githubusercontent.com/zdqzyx/images/master/blog/text_classification_images/TextAttBiRNN_network_structure.png)
 
-> 这里实现的Attention是将GRU各个ste
+> 这里实现的Attention是将GRU各个step的output作为key和value，增加一个参数向量W作为query，主要是为了计算GRU各个step的output的权重，最后加权求和得到Attention的输出
+
+
+## [TranformerEncoder](./imp_by_tensorflow2/TextTransformerEncod
