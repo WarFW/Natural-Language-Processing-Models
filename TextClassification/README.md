@@ -38,4 +38,6 @@
 > [tensorflow2.0 offical tutorials/text/transformer](https://www.tensorflow.org/tutorials/text/transformer)
 
 ### 此处实现的网络结构：
-![](https://raw.githubusercontent.com/zdqzyx/images/master/pic
+![](https://raw.githubusercontent.com/zdqzyx/images/master/picgo/20200427102052.png)
+
+
