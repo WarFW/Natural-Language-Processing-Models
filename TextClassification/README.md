@@ -29,4 +29,10 @@
 > 这里实现的Attention是将GRU各个step的output作为key和value，增加一个参数向量W作为query，主要是为了计算GRU各个step的output的权重，最后加权求和得到Attention的输出
 
 
-## [TranformerEncoder](./imp_by_tensorflow2/TextTransformerEncod
+## [TranformerEncoder](./imp_by_tensorflow2/TextTransformerEncoder/modeling.py)
+
+### 参考论文
+> [Attention Is All You Need](https://arxiv.org/abs/1706.03762)
+
+### 参考实现
+> [tensorflow2.0 offical tutorials/text/trans
