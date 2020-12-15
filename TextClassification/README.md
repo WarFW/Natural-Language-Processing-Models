@@ -35,4 +35,7 @@
 > [Attention Is All You Need](https://arxiv.org/abs/1706.03762)
 
 ### 参考实现
-> [tensorflow2.0 offical tutorials/text/trans
+> [tensorflow2.0 offical tutorials/text/transformer](https://www.tensorflow.org/tutorials/text/transformer)
+
+### 此处实现的网络结构：
+![](https://raw.githubusercontent.com/zdqzyx/images/master/pic
