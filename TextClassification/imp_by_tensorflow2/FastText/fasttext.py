@@ -6,4 +6,9 @@
 
 
 import  tensorflow as tf
-from tensorflow.k
+from tensorflow.keras.layers import Embedding, Conv1D, GlobalAveragePooling1D, Dense, Concatenate, GlobalMaxPooling1D
+from tensorflow.keras import Model
+
+class FastText(Model):
+
+    de
