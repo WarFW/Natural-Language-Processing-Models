@@ -16,4 +16,9 @@ class FastText(Model):
                     max_features,
                     embedding_dims,
                     class_num,
-                    last_activation = 's
+                    last_activation = 'softmax'
+                ):
+        super(FastText, self).__init__()
+        self.maxlen = maxlen
+        # self.max_features = max_features
+        # 
