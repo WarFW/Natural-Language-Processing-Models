@@ -26,4 +26,8 @@ class FastText(Model):
         self.embedding = Embedding(input_dim=max_features, output_dim=embedding_dims, input_length=maxlen)
         self.pooling = GlobalAveragePooling1D()
         self.dense = Dense(128, activation='relu')
-        self.clas
+        self.classifier = Dense(self.class_num, activation=last_activation)
+
+    def call(self, inputs, training=None, mask=None):
+        if len(inputs.get_shape()) != 2:
+   
