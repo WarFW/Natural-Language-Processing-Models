@@ -23,4 +23,7 @@ class FastText(Model):
         # self.max_features = max_features
         # self.embedding_dims = embedding_dims
         self.class_num = class_num
-        self.embedding = Embedding(input_dim=max_features, output_dim=embed
+        self.embedding = Embedding(input_dim=max_features, output_dim=embedding_dims, input_length=maxlen)
+        self.pooling = GlobalAveragePooling1D()
+        self.dense = Dense(128, activation='relu')
+        self.clas
