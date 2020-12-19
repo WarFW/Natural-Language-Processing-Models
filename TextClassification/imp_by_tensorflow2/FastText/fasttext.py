@@ -21,4 +21,6 @@ class FastText(Model):
         super(FastText, self).__init__()
         self.maxlen = maxlen
         # self.max_features = max_features
-        # 
+        # self.embedding_dims = embedding_dims
+        self.class_num = class_num
+        self.embedding = Embedding(input_dim=max_features, output_dim=embed
