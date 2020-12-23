@@ -35,4 +35,10 @@ class FastText(Model):
             raise ValueError('The maxlen of inputs of FastText must be %d, but now is %d' % (self.maxlen, inputs.get_shape()[1]))
 
         emb = self.embedding(inputs)
-        pool = se
+        pool = self.pooling(emb)
+        h = self.dense(pool)
+        output = self.classifier(h)
+        return output
+
+    def build_graph(self, input_shape):
+        i
