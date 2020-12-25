@@ -41,4 +41,8 @@ class FastText(Model):
         return output
 
     def build_graph(self, input_shape):
-        i
+        input_shape_nobatch = input_shape[1:]
+        self.build(input_shape)
+        inputs = tf.keras.Input(shape=input_shape_nobatch)
+        if not hasattr(self, 'call'):
+            rais
