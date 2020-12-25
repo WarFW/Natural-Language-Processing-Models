@@ -50,4 +50,9 @@ class FastText(Model):
 
 if __name__=='__main__':
     model = FastText(maxlen=400,
-                  
+                    max_features=5000,
+                    embedding_dims=100,
+                    class_num=2,
+                    last_activation='softmax',
+    )
+    model.bui
