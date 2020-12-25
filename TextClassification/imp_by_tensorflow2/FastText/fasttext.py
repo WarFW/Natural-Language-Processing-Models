@@ -55,4 +55,5 @@ if __name__=='__main__':
                     class_num=2,
                     last_activation='softmax',
     )
-    model.bui
+    model.build_graph(input_shape=(None, 400))
+    model.summary()
