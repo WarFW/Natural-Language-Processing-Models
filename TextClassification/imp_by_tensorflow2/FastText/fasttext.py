@@ -45,4 +45,9 @@ class FastText(Model):
         self.build(input_shape)
         inputs = tf.keras.Input(shape=input_shape_nobatch)
         if not hasattr(self, 'call'):
-            rais
+            raise AttributeError("User should define 'call' method in sub-class model!")
+        _ = self.call(inputs)
+
+if __name__=='__main__':
+    model = FastText(maxlen=400,
+                  
