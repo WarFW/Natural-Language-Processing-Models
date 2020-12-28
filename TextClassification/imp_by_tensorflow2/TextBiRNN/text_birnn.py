@@ -11,4 +11,13 @@ from tensorflow.keras import backend as K
 
 
 def point_wise_feed_forward_network(dense_size):
-    ffn = tf.k
+    ffn = tf.keras.Sequential()
+    for size in dense_size:
+        ffn.add(Dense(size, activation='relu'))
+    return ffn
+
+
+class TextBiRNN(Model):
+
+    def __init__(self,
+             
