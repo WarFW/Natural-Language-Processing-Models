@@ -20,4 +20,9 @@ def point_wise_feed_forward_network(dense_size):
 class TextBiRNN(Model):
 
     def __init__(self,
-             
+                 maxlen,
+                 max_features,
+                 embedding_dims,
+                 class_num,
+                 last_activation='softmax',
+                 de
