@@ -31,4 +31,9 @@ class TextBiRNN(Model):
         :param maxlen: 文本最大长度
         :param max_features: 词典大小
         :param embedding_dims: embedding维度大小
-     
+        :param class_num:
+        :param last_activation:
+        '''
+        super(TextBiRNN, self).__init__()
+        self.maxlen = maxlen
+        self.max_features = 
