@@ -57,4 +57,9 @@ class TextBiRNN(Model):
 
         emb = self.embedding(inputs)
         x = self.bi_rnn(emb)
-      
+        # x = self.avepool(x)
+        x = tf.reduce_mean(x, axis=1)
+        if self.dense_size is not None:
+            x = self.ffn(x)
+        output = self.classifier(x)
+ 
