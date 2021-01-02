@@ -53,4 +53,8 @@ class TextBiRNN(Model):
         if len(inputs.get_shape()) != 2:
             raise ValueError('The rank of inputs of TextBiRNN must be 2, but now is {}'.format(inputs.get_shape()))
         if inputs.get_shape()[1] != self.maxlen:
-            raise ValueError('The maxlen 
+            raise ValueError('The maxlen of inputs of TextBiRNN must be %d, but now is %d' % (self.maxlen, inputs.get_shape()[1]))
+
+        emb = self.embedding(inputs)
+        x = self.bi_rnn(emb)
+      
