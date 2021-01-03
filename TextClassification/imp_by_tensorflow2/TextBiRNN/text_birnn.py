@@ -62,4 +62,9 @@ class TextBiRNN(Model):
         if self.dense_size is not None:
             x = self.ffn(x)
         output = self.classifier(x)
- 
+        return output
+
+    def build_graph(self, input_shape):
+        input_shape_nobatch = input_shape[1:]
+        self.build(input_shape)
+        inputs = tf.
