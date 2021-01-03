@@ -75,4 +75,8 @@ class TextBiRNN(Model):
 if __name__=='__main__':
     model = TextBiRNN(maxlen=400,
                     max_features=5000,
-                    
+                    embedding_dims=100,
+                    class_num=2,
+                    last_activation='softmax',
+                    # dense_size=[128, 64],
+    dense_size = Non
