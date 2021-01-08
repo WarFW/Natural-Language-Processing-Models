@@ -8,4 +8,9 @@ from tensorflow.keras import  initializers,regularizers,constraints
 from  tensorflow.keras.layers import Layer
 import tensorflow as tf
 
-cl
+class Attention(Layer):
+    def __init__(self,
+                 W_regularizer=None,
+                 b_regularizer=None,
+                 W_constraint=None,
+    
