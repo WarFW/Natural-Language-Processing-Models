@@ -13,4 +13,9 @@ class Attention(Layer):
                  W_regularizer=None,
                  b_regularizer=None,
                  W_constraint=None,
-    
+                 b_constraint=None,
+                 bias=True,
+                 **kwargs
+                 ):
+        """
+        Keras Layer that implements an Att
