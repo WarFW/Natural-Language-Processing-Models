@@ -22,4 +22,8 @@ class Attention(Layer):
         Supports Masking.
         Follows the work of Raffel et al. [https://arxiv.org/abs/1512.08756]
         # Input shape
-      
+            3D tensor with shape: `(samples, steps, features)`.
+        # Output shape
+            2D tensor with shape: `(samples, features)`.
+        :param kwargs:
+    
