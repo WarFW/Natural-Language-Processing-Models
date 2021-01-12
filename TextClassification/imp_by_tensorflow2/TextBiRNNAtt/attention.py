@@ -18,4 +18,8 @@ class Attention(Layer):
                  **kwargs
                  ):
         """
-        Keras Layer that implements an Att
+        Keras Layer that implements an Attention mechanism for temporal data.
+        Supports Masking.
+        Follows the work of Raffel et al. [https://arxiv.org/abs/1512.08756]
+        # Input shape
+      
