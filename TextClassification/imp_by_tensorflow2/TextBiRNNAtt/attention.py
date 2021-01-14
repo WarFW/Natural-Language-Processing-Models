@@ -32,4 +32,8 @@ class Attention(Layer):
             # 1
             model.add(LSTM(64, return_sequences=True))
             model.add(Attention())
-            # next add a Dense layer (for classification/regression) o
+            # next add a Dense layer (for classification/regression) or whatever...
+            # 2
+            hidden = LSTM(64, return_sequences=True)(words)
+            sentence = Attention()(hidden)
+        
