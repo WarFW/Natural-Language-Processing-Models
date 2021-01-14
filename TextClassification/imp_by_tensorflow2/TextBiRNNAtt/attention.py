@@ -28,4 +28,8 @@ class Attention(Layer):
         :param kwargs:
         Just put it on top of an RNN Layer (GRU/LSTM/SimpleRNN) with return_sequences=True.
         The dimensions are inferred based on the output shape of the RNN.
-      
+        Example:
+            # 1
+            model.add(LSTM(64, return_sequences=True))
+            model.add(Attention())
+            # next add a Dense layer (for classification/regression) o
