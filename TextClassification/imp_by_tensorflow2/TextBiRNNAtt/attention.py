@@ -36,4 +36,7 @@ class Attention(Layer):
             # 2
             hidden = LSTM(64, return_sequences=True)(words)
             sentence = Attention()(hidden)
-        
+            # next add a Dense layer (for classification/regression) or whatever...
+        """
+        super(Attention, self).__init__()
+        self.bias =
