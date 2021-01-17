@@ -39,4 +39,12 @@ class Attention(Layer):
             # next add a Dense layer (for classification/regression) or whatever...
         """
         super(Attention, self).__init__()
-        self.bias =
+        self.bias = bias
+        self.init = initializers.get('glorot_uniform')
+
+    def build(self, input_shape):
+        '''
+        :param input_shape:
+        :return:
+        '''
+        se
