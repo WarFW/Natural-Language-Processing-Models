@@ -47,4 +47,7 @@ class Attention(Layer):
         :param input_shape:
         :return:
         '''
-        se
+        self.output_dim = input_shape[-1]
+        self.W = self.add_weight(
+                                 name='{}_W'.format(self.name),
+                                 shape=(
