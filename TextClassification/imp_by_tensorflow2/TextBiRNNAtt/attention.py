@@ -50,4 +50,7 @@ class Attention(Layer):
         self.output_dim = input_shape[-1]
         self.W = self.add_weight(
                                  name='{}_W'.format(self.name),
-                                 shape=(
+                                 shape=(input_shape[2], 1),
+                                 initializer=self.init,
+                                 trainable=True
+      
