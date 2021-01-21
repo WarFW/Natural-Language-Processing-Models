@@ -59,4 +59,11 @@ class Attention(Layer):
                                      name='{}_b'.format(self.name),
                                      shape=(input_shape[1], 1),
                                      initializer='zero',
-                                     t
+                                     trainable=True
+                                     )
+        else:
+            self.b = None
+
+        self.built = True
+
+    def compute_mask(self, inputs, mask=Non
