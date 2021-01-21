@@ -57,4 +57,6 @@ class Attention(Layer):
         if self.bias:
             self.b = self.add_weight(
                                      name='{}_b'.format(self.name),
-   
+                                     shape=(input_shape[1], 1),
+                                     initializer='zero',
+                                     t
