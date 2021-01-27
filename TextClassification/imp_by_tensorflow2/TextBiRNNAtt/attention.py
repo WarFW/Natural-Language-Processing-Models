@@ -77,4 +77,13 @@ class Attention(Layer):
         e = tf.tanh(e)
         a = tf.nn.softmax(e, axis=1)
         # (N, step, d) (N, step, 1) ====> (N, step, d)
-        c = 
+        c = inputs*a
+        # (N, d)
+        c = tf.reduce_sum(c, axis=1)
+        return c
+
+    def get_config(self):
+        return {'units': self.output_dim}
+
+
+if __name
