@@ -66,4 +66,10 @@ class Attention(Layer):
 
         self.built = True
 
-    def compute_mask(self, inputs, mask=Non
+    def compute_mask(self, inputs, mask=None):
+        return None
+
+    def call(self, inputs, mask=None):
+        # (N, step, d), (d, 1)  ==>   (N, step, 1)
+        e = tf.matmul(inputs, self.W, )
+        if self
