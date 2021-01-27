@@ -72,4 +72,9 @@ class Attention(Layer):
     def call(self, inputs, mask=None):
         # (N, step, d), (d, 1)  ==>   (N, step, 1)
         e = tf.matmul(inputs, self.W, )
-        if self
+        if self.bias:
+            e += self.b
+        e = tf.tanh(e)
+        a = tf.nn.softmax(e, axis=1)
+        # (N, step, d) (N, step, 1) ====> (N, step, d)
+        c = 
