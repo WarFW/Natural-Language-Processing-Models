@@ -86,4 +86,12 @@ class Attention(Layer):
         return {'units': self.output_dim}
 
 
-if __name
+if __name__=='__main__':
+    x = tf.ones((2, 5, 10))
+    att = Attention()
+    y = att(x)
+    print(y.shape)
+    print(y)
+    print(att.get_config())
+
+
