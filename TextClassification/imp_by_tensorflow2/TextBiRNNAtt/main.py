@@ -17,4 +17,7 @@ tf.random.set_seed(0)
 import os
 from tensorflow.keras.callbacks import EarlyStopping, TensorBoard, ModelCheckpoint
 from tensorflow.keras.datasets import imdb
-f
+from tensorflow.keras.preprocessing.sequence import pad_sequences
+from TextClassification.imp_by_tensorflow2.TextBiRNNAtt.text_birnn_att import TextBiRNNAtt
+
+def checkout_dir(dir_path, 
