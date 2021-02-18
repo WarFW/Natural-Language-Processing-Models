@@ -40,3 +40,8 @@ class ModelHepler:
         self.callback_list = []
         print('Bulid Model...')
         self.create_model()
+
+    def create_model(self):
+        model = TextBiRNNAtt(maxlen=self.maxlen,
+                         max_features=self.max_features,
+                         embedding_dims=sel
