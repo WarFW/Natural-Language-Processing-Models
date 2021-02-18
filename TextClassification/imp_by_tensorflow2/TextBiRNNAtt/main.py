@@ -35,4 +35,8 @@ class ModelHepler:
         self.maxlen = maxlen
         self.max_features = max_features
         self.embedding_dims = embedding_dims
-        self.epo
+        self.epochs = epochs
+        self.batch_size = batch_size
+        self.callback_list = []
+        print('Bulid Model...')
+        self.create_model()
