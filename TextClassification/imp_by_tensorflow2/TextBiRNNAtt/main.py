@@ -44,4 +44,8 @@ class ModelHepler:
     def create_model(self):
         model = TextBiRNNAtt(maxlen=self.maxlen,
                          max_features=self.max_features,
-                         embedding_dims=sel
+                         embedding_dims=self.embedding_dims,
+                         class_num=self.class_num,
+                         last_activation='softmax',
+                          # dense_size=[128]
+ 
