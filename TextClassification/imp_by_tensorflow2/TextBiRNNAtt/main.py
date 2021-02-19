@@ -48,4 +48,8 @@ class ModelHepler:
                          class_num=self.class_num,
                          last_activation='softmax',
                           # dense_size=[128]
- 
+                          )
+        model.compile(
+            optimizer='adam',
+            loss=tf.keras.losses.SparseCategoricalCrossentropy(),
+           
