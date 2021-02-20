@@ -52,4 +52,10 @@ class ModelHepler:
         model.compile(
             optimizer='adam',
             loss=tf.keras.losses.SparseCategoricalCrossentropy(),
-           
+            metrics=['accuracy'],
+        )
+        model.build_graph(input_shape=(None, self.maxlen))
+        model.summary()
+        self.model =  model
+
+    de
