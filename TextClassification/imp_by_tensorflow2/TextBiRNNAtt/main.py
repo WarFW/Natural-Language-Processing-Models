@@ -81,4 +81,9 @@ class ModelHepler:
         if tensorboard_log_dir is not None:
             # tensorboard --logdir logs/FastText-epoch-5
             checkout_dir(tensorboard_log_dir, do_delete=True)
-            tensorboard_callback = TensorBoard(log_dir=tensorboard_log_dir, histogram
+            tensorboard_callback = TensorBoard(log_dir=tensorboard_log_dir, histogram_freq=1)
+            callback_list.append(tensorboard_callback)
+        self.callback_list = callback_list
+
+    def fit(self, x_train, y_train, x_val, y_val):
+ 
