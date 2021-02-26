@@ -90,4 +90,9 @@ class ModelHepler:
         self.model.fit(x_train, y_train,
                   batch_size=self.batch_size,
                   epochs=self.epochs,
-              
+                  verbose=2,
+                  callbacks=self.callback_list,
+                  validation_data=(x_val, y_val))
+
+    def load_model(self, checkpoint_path):
+      
