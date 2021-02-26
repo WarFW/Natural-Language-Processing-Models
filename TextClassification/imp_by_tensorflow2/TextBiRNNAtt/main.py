@@ -86,4 +86,8 @@ class ModelHepler:
         self.callback_list = callback_list
 
     def fit(self, x_train, y_train, x_val, y_val):
- 
+        print('Train...')
+        self.model.fit(x_train, y_train,
+                  batch_size=self.batch_size,
+                  epochs=self.epochs,
+              
