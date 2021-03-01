@@ -95,4 +95,7 @@ class ModelHepler:
                   validation_data=(x_val, y_val))
 
     def load_model(self, checkpoint_path):
-      
+        checkpoint_dir = os.path.dirname((checkpoint_path))
+        latest = tf.train.latest_checkpoint(checkpoint_dir)
+        print('restore model name is : ', latest)
+  
