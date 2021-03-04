@@ -98,4 +98,10 @@ class ModelHepler:
         checkpoint_dir = os.path.dirname((checkpoint_path))
         latest = tf.train.latest_checkpoint(checkpoint_dir)
         print('restore model name is : ', latest)
-  
+        # 创建一个新的模型实例
+        # model = self.create_model()
+        # 加载以前保存的权重
+        self.model.load_weights(latest)
+
+# ================  params =========================
+cl
