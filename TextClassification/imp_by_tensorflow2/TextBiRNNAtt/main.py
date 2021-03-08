@@ -104,4 +104,13 @@ class ModelHepler:
         self.model.load_weights(latest)
 
 # ================  params =========================
-cl
+class_num = 2
+maxlen = 400
+embedding_dims = 100
+epochs = 10
+batch_size = 128
+max_features = 5000
+
+MODEL_NAME = 'TextBiRNNAtt-epoch-10-emb-100'
+
+use_early_stop=True
