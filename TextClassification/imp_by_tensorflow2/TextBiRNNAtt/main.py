@@ -141,4 +141,9 @@ model_hepler.fit(x_train=x_train, y_train=y_train, x_val=x_test, y_val=y_test)
 
 print('Test...')
 result = model_hepler.model.predict(x_test)
-test_score = model_hepler.model.evaluate(x_test
+test_score = model_hepler.model.evaluate(x_test, y_test,
+                            batch_size=batch_size)
+print("test loss:", test_score[0], "test accuracy", test_score[1])
+
+
+print('Restored Mode
