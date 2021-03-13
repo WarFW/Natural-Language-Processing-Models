@@ -136,4 +136,9 @@ model_hepler = ModelHepler(class_num=class_num,
                            batch_size=batch_size
                            )
 model_hepler.get_callback(use_early_stop=use_early_stop, tensorboard_log_dir=tensorboard_log_dir, checkpoint_path=checkpoint_path)
-model_hepler.fit(x_tr
+model_hepler.fit(x_train=x_train, y_train=y_train, x_val=x_test, y_val=y_test)
+
+
+print('Test...')
+result = model_hepler.model.predict(x_test)
+test_score = model_hepler.model.evaluate(x_test
