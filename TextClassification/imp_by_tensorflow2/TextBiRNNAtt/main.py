@@ -146,4 +146,8 @@ test_score = model_hepler.model.evaluate(x_test, y_test,
 print("test loss:", test_score[0], "test accuracy", test_score[1])
 
 
-print('Restored Mode
+print('Restored Model...')
+model_hepler = ModelHepler(class_num=class_num,
+                           maxlen=maxlen,
+                           max_features=max_features,
+                  
