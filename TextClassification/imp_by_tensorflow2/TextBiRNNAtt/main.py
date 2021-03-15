@@ -154,4 +154,7 @@ model_hepler = ModelHepler(class_num=class_num,
                            epochs=epochs,
                            batch_size=batch_size
                            )
-m
+model_hepler.load_model(checkpoint_path=checkpoint_path)
+# 重新评估模型  0.8790
+loss, acc = model_hepler.model.evaluate(x_test, y_test, verbose=2)
+print("Restored model, a
