@@ -157,4 +157,4 @@ model_hepler = ModelHepler(class_num=class_num,
 model_hepler.load_model(checkpoint_path=checkpoint_path)
 # 重新评估模型  0.8790
 loss, acc = model_hepler.model.evaluate(x_test, y_test, verbose=2)
-print("Restored model, a
+print("Restored model, accuracy: {:5.2f}%".format(100 * acc))
