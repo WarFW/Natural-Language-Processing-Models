@@ -5,4 +5,7 @@
 # @Software: PyCharm
 
 
-import  ten
+import  tensorflow as tf
+from tensorflow.keras.layers import Embedding, Dense, GRU, Bidirectional
+from tensorflow.keras import Model
+from TextClassification.imp_by_tenso
