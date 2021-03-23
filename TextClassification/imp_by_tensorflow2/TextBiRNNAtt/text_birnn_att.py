@@ -20,4 +20,9 @@ class TextBiRNNAtt(Model):
 
     def __init__(self,
                  maxlen,
-                 max_featur
+                 max_features,
+                 embedding_dims,
+                 class_num,
+                 last_activation='softmax',
+                 dense_size=None
+             
