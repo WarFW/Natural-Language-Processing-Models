@@ -13,4 +13,11 @@ from TextClassification.imp_by_tensorflow2.TextBiRNNAtt.attention import Attenti
 def point_wise_feed_forward_network(dense_size):
     ffn = tf.keras.Sequential()
     for size in dense_size:
-        ffn.add(Den
+        ffn.add(Dense(size, activation='relu'))
+    return ffn
+
+class TextBiRNNAtt(Model):
+
+    def __init__(self,
+                 maxlen,
+                 max_featur
