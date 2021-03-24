@@ -31,4 +31,9 @@ class TextBiRNNAtt(Model):
         :param max_features: 词典大小
         :param embedding_dims: embedding维度大小
         :param class_num:
-        
+        :param last_activation:
+        '''
+        super(TextBiRNNAtt, self).__init__()
+        self.maxlen = maxlen
+        self.max_features = max_features
+       
