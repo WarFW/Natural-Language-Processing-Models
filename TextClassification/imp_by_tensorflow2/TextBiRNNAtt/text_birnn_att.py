@@ -41,4 +41,5 @@ class TextBiRNNAtt(Model):
         self.last_activation = last_activation
         self.dense_size = dense_size
 
- 
+        self.embedding = Embedding(input_dim=self.max_features, output_dim=self.embedding_dims, input_length=self.maxlen)
+        self.bi_rnn = Bidirectional(laye
