@@ -44,4 +44,7 @@ class TextBiRNNAtt(Model):
         self.embedding = Embedding(input_dim=self.max_features, output_dim=self.embedding_dims, input_length=self.maxlen)
         self.bi_rnn = Bidirectional(layer=GRU(units=128, activation='tanh', return_sequences=True), merge_mode='concat' ) # LSTM or GRU
         self.attention = Attention()
-        if self.dense_size 
+        if self.dense_size is not None:
+            self.ffn = point_wise_feed_forward_network(dense_size)
+        self.classifier = Dense(self.class_num, activation=self.last_activation)
+
