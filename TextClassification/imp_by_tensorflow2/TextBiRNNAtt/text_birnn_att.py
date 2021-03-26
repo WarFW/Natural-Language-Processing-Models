@@ -50,4 +50,6 @@ class TextBiRNNAtt(Model):
 
     def call(self, inputs, training=None, mask=None):
         if len(inputs.get_shape()) != 2:
-            raise ValueError('The rank of inputs of Tex
+            raise ValueError('The rank of inputs of TextBiRNNAtt must be 2, but now is {}'.format(inputs.get_shape()))
+        if inputs.get_shape()[1] != self.maxlen:
+            raise ValueError('
