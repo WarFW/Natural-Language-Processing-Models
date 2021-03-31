@@ -67,4 +67,10 @@ class TextBiRNNAtt(Model):
         self.build(input_shape)
         inputs = tf.keras.Input(shape=input_shape_nobatch)
         if not hasattr(self, 'call'):
-            raise AttributeError("User should define 'call' method in sub-
+            raise AttributeError("User should define 'call' method in sub-class model!")
+        _ = self.call(inputs)
+
+if __name__=='__main__':
+    model = TextBiRNNAtt(maxlen=400,
+                        max_features=5000,
+                        e
