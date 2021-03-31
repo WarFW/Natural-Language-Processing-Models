@@ -55,4 +55,8 @@ class TextBiRNNAtt(Model):
             raise ValueError('The maxlen of inputs of TextBiRNNAtt must be %d, but now is %d' % (self.maxlen, inputs.get_shape()[1]))
 
         emb = self.embedding(inputs)
- 
+        x = self.bi_rnn(emb)
+        x = self.attention(x)
+        if self.dense_size is not None:
+            x = self.ffn(x)
+        output = self.classifier(x)
