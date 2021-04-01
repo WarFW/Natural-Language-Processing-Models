@@ -73,4 +73,8 @@ class TextBiRNNAtt(Model):
 if __name__=='__main__':
     model = TextBiRNNAtt(maxlen=400,
                         max_features=5000,
-                        e
+                        embedding_dims=100,
+                        class_num=2,
+                        last_activation='softmax',
+                        # dense_size=[128, 64],
+                        dens
