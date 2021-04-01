@@ -77,4 +77,7 @@ if __name__=='__main__':
                         class_num=2,
                         last_activation='softmax',
                         # dense_size=[128, 64],
-                        dens
+                        dense_size = None
+                        )
+    model.build_graph(input_shape=(None, 400))
+    model.summary()
