@@ -92,3 +92,32 @@ def inference(x):
     predictions = model(x)
     return np.argmax(predictions, axis=-1)
 
+
+print('Train...')
+EPOCHS = 5
+
+for epoch in range(EPOCHS):
+    # 在下一个epoch开始时，重置评估指标
+    train_loss.reset_states()
+    train_accuracy.reset_states()
+    test_loss.reset_states()
+    test_accuracy.reset_states()
+
+    for x, labels in train_ds:
+        train_step(x, labels)
+
+    for x, test_labels in test_ds:
+        test_step(x, test_labels)
+
+    template = 'Epoch {}, Loss: {}, Accuracy: {}, Test Loss: {}, Test Accuracy: {}'
+    print (template.format(epoch+1,
+                         train_loss.result(),
+                         train_accuracy.result()*100,
+                         test_loss.result(),
+                         test_accuracy.result()*100))
+
+print('Test...')
+pred = np.array([])
+for x, test_labels in test_ds:
+    pred = np.append(pred, inference(x))
+print("pred is : ", pred)
