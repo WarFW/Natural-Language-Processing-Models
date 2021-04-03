@@ -125,3 +125,36 @@ checkpoint_path = 'save_model_dir\\'+MODEL_NAME+'\\cp-{epoch:04d}.ckpt'
 print('Loading data...')
 (x_train, y_train), (x_test, y_test) = imdb.load_data(num_words=max_features)
 print('Pad sequences (samples x time)...')
+x_train = pad_sequences(x_train, maxlen=maxlen, padding='post')
+x_test = pad_sequences(x_test, maxlen=maxlen, padding='post')
+print('x_train shape:', x_train.shape)
+print('x_test shape:', x_test.shape)
+
+model_hepler = ModelHepler(class_num=class_num,
+                           maxlen=maxlen,
+                           max_features=max_features,
+                           embedding_dims=embedding_dims,
+                           epochs=epochs,
+                           batch_size=batch_size
+                           )
+model_hepler.get_callback(use_early_stop=use_early_stop, tensorboard_log_dir=tensorboard_log_dir, checkpoint_path=checkpoint_path)
+model_hepler.fit(x_train=x_train, y_train=y_train, x_val=x_test, y_val=y_test)
+print('Test...')
+result = model_hepler.model.predict(x_test)
+test_score = model_hepler.model.evaluate(x_test, y_test,
+                            batch_size=batch_size)
+print("test loss:", test_score[0], "test accuracy", test_score[1])
+
+
+
+model_hepler = ModelHepler(class_num=class_num,
+                           maxlen=maxlen,
+                           max_features=max_features,
+                           embedding_dims=embedding_dims,
+                           epochs=epochs,
+                           batch_size=batch_size
+                           )
+model_hepler.load_model(checkpoint_path=checkpoint_path)
+# 重新评估模型
+loss, acc = model_hepler.model.evaluate(x_test, y_test, verbose=2)
+print("Restored model, accuracy: {:5.2f}%".format(100 * acc))
