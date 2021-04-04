@@ -6,4 +6,12 @@
 
 import  tensorflow as tf
 from tensorflow.keras.layers import Embedding, Conv1D, GlobalAveragePooling1D, Dense, Concatenate, GlobalMaxPooling1D
-from tensorflow.ker
+from tensorflow.keras import Model
+
+class TextCNN(Model):
+
+    def __init__(self,
+                 maxlen,
+                 max_features,
+                 embedding_dims,
+            
