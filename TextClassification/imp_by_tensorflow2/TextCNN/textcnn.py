@@ -17,4 +17,9 @@ class TextCNN(Model):
                  class_num,
                  kernel_sizes=[1,2,3],
                  kernel_regularizer=None,
-                 last_activation=
+                 last_activation='softmax'
+                 ):
+        '''
+        :param maxlen: 文本最大长度
+        :param max_features: 词典大小
+        :param embedding_dims
