@@ -14,4 +14,7 @@ class TextCNN(Model):
                  maxlen,
                  max_features,
                  embedding_dims,
-            
+                 class_num,
+                 kernel_sizes=[1,2,3],
+                 kernel_regularizer=None,
+                 last_activation=
