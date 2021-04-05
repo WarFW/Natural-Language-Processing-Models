@@ -22,4 +22,8 @@ class TextCNN(Model):
         '''
         :param maxlen: 文本最大长度
         :param max_features: 词典大小
-        :param embedding_dims
+        :param embedding_dims: embedding维度大小
+        :param kernel_sizes: 滑动卷积窗口大小的list, eg: [1,2,3]
+        :param kernel_regularizer: eg: tf.keras.regularizers.l2(0.001)
+        :param class_num:
+     
