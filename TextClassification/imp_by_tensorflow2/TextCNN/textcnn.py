@@ -31,4 +31,7 @@ class TextCNN(Model):
         super(TextCNN, self).__init__()
         self.maxlen = maxlen
         # self.max_features = max_features
-        #
+        # self.embedding_dims = embedding_dims
+        self.kernel_sizes = kernel_sizes
+        self.class_num = class_num
+        self.embedding = Embedding(inp
