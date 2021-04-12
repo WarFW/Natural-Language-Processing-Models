@@ -26,4 +26,9 @@ class TextCNN(Model):
         :param kernel_sizes: 滑动卷积窗口大小的list, eg: [1,2,3]
         :param kernel_regularizer: eg: tf.keras.regularizers.l2(0.001)
         :param class_num:
-     
+        :param last_activation:
+        '''
+        super(TextCNN, self).__init__()
+        self.maxlen = maxlen
+        # self.max_features = max_features
+        #
