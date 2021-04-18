@@ -34,4 +34,8 @@ class TextCNN(Model):
         # self.embedding_dims = embedding_dims
         self.kernel_sizes = kernel_sizes
         self.class_num = class_num
-        self.embedding = Embedding(inp
+        self.embedding = Embedding(input_dim=max_features, output_dim=embedding_dims, input_length=maxlen)
+        self.conv1s = []
+        self.avgpools = []
+        for kernel_size in kernel_sizes:
+            self.conv1s.app
