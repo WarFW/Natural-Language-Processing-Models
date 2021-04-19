@@ -39,4 +39,7 @@ class TextCNN(Model):
         self.avgpools = []
         for kernel_size in kernel_sizes:
             self.conv1s.append(Conv1D(filters=128, kernel_size=kernel_size, activation='relu', kernel_regularizer=kernel_regularizer))
-            self.avgpools.append(Global
+            self.avgpools.append(GlobalMaxPooling1D())
+        self.classifier = Dense(class_num, activation=last_activation, )
+
+    def call(self, inputs, training=None, mask=None):
