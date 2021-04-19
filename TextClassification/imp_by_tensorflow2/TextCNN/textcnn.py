@@ -38,4 +38,5 @@ class TextCNN(Model):
         self.conv1s = []
         self.avgpools = []
         for kernel_size in kernel_sizes:
-            self.conv1s.app
+            self.conv1s.append(Conv1D(filters=128, kernel_size=kernel_size, activation='relu', kernel_regularizer=kernel_regularizer))
+            self.avgpools.append(Global
