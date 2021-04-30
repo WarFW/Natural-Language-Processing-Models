@@ -43,3 +43,5 @@ class TextCNN(Model):
         self.classifier = Dense(class_num, activation=last_activation, )
 
     def call(self, inputs, training=None, mask=None):
+        if len(inputs.get_shape()) != 2:
+            raise ValueError('The rank of inputs of TextCNN must be 2, but now is %d' % len(inputs.get_shape()))
