@@ -46,4 +46,9 @@ class TextCNN(Model):
         if len(inputs.get_shape()) != 2:
             raise ValueError('The rank of inputs of TextCNN must be 2, but now is %d' % len(inputs.get_shape()))
         if inputs.get_shape()[1] != self.maxlen:
-            raise ValueError('The maxlen of inputs of TextCNN must be %d, but now is %d' % (self.maxlen, inputs.get_shape()[1]
+            raise ValueError('The maxlen of inputs of TextCNN must be %d, but now is %d' % (self.maxlen, inputs.get_shape()[1]))
+
+        emb = self.embedding(inputs)
+        conv1s = []
+        for i in range(len(self.kernel_sizes)):
+            c = self.conv1s[i](emb) # (batch_size, max
