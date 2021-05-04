@@ -51,4 +51,7 @@ class TextCNN(Model):
         emb = self.embedding(inputs)
         conv1s = []
         for i in range(len(self.kernel_sizes)):
-            c = self.conv1s[i](emb) # (batch_size, max
+            c = self.conv1s[i](emb) # (batch_size, maxlen-kernel_size+1, filters)
+            c = self.avgpools[i](c) # # (batch_size, filters)
+            conv1s.append(c)
+        x = Concatenate()(conv1s) # (batch_si
