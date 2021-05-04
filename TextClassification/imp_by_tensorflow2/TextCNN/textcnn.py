@@ -54,4 +54,9 @@ class TextCNN(Model):
             c = self.conv1s[i](emb) # (batch_size, maxlen-kernel_size+1, filters)
             c = self.avgpools[i](c) # # (batch_size, filters)
             conv1s.append(c)
-        x = Concatenate()(conv1s) # (batch_si
+        x = Concatenate()(conv1s) # (batch_size, len(self.kernel_sizes)*filters)
+        output = self.classifier(x)
+        return output
+
+    def build_graph(self, input_shape):
+        input_sha
