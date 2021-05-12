@@ -59,4 +59,7 @@ class TextCNN(Model):
         return output
 
     def build_graph(self, input_shape):
-        input_sha
+        input_shape_nobatch = input_shape[1:]
+        self.build(input_shape)
+        inputs = tf.keras.Input(shape=input_shape_nobatch)
+        if not hasattr(self,
