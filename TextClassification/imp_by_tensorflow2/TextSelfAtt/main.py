@@ -31,4 +31,7 @@ def checkout_dir(dir_path, do_delete=False):
 
 
 class ModelHepler:
-    def __init__(self
+    def __init__(self, class_num, maxlen, max_features, embedding_dims, epochs, batch_size):
+        self.class_num = class_num
+        self.maxlen = maxlen
+        self.max_featur
