@@ -38,4 +38,10 @@ class ModelHepler:
         self.embedding_dims = embedding_dims
         self.epochs = epochs
         self.batch_size = batch_size
-        sel
+        self.callback_list = []
+        print('Bulid Model...')
+        self.create_model()
+
+    def create_model(self):
+        model = TextSelfAtt(maxlen=self.maxlen,
+                    
