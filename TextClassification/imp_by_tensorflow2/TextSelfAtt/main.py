@@ -44,4 +44,7 @@ class ModelHepler:
 
     def create_model(self):
         model = TextSelfAtt(maxlen=self.maxlen,
-                    
+                         max_features=self.max_features,
+                         embedding_dims=self.embedding_dims,
+                         class_num=self.class_num,
+   
