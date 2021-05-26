@@ -59,4 +59,8 @@ class ModelHepler:
         model.summary()
         self.model =  model
 
-    def get_callback(self, use_early_stop=True, tensorboard_log_dir='logs\\FastText-ep
+    def get_callback(self, use_early_stop=True, tensorboard_log_dir='logs\\FastText-epoch-5', checkpoint_path="save_model_dir\\cp-moel.ckpt"):
+        callback_list = []
+        if use_early_stop:
+            # EarlyStopping
+           
