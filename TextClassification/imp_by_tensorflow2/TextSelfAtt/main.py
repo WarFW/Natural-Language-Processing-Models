@@ -47,4 +47,8 @@ class ModelHepler:
                          max_features=self.max_features,
                          embedding_dims=self.embedding_dims,
                          class_num=self.class_num,
-   
+                         last_activation='softmax',
+                          # dense_size=[128]
+                          )
+        model.compile(
+          
