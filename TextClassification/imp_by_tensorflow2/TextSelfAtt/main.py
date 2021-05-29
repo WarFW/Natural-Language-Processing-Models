@@ -63,4 +63,6 @@ class ModelHepler:
         callback_list = []
         if use_early_stop:
             # EarlyStopping
-           
+            early_stopping = EarlyStopping(monitor='val_accuracy', patience=5, mode='max')
+            callback_list.append(early_stopping)
+        if checkpoi
