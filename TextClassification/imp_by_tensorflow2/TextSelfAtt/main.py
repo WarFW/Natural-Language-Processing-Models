@@ -74,4 +74,7 @@ class ModelHepler:
                                              monitor='val_accuracy',
                                              mode='max',
                                              save_best_only=True,
-                           
+                                             save_weights_only=True,
+                                             verbose=1,
+                                             period=2,
+              
