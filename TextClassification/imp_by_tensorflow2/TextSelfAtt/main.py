@@ -77,4 +77,7 @@ class ModelHepler:
                                              save_weights_only=True,
                                              verbose=1,
                                              period=2,
-              
+                                             )
+            callback_list.append(cp_callback)
+        if tensorboard_log_dir is not None:
+            # tensorboard --logdi
