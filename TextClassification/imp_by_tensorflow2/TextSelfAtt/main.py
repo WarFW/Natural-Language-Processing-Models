@@ -92,4 +92,8 @@ class ModelHepler:
                   batch_size=self.batch_size,
                   epochs=self.epochs,
                   verbose=2,
-            
+                  callbacks=self.callback_list,
+                  validation_data=(x_val, y_val))
+
+    def load_model(self, checkpoint_path):
+        checkpoint_dir = o
