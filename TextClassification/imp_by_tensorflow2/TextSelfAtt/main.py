@@ -104,4 +104,12 @@ class ModelHepler:
         # 加载以前保存的权重
         self.model.load_weights(latest)
 
-# ================  params =================
+# ================  params =========================
+class_num = 2
+maxlen = 400
+embedding_dims = 200
+epochs = 10
+batch_size = 128
+max_features = 5000
+
+MODEL_NAME = 'TextSelfAtt-epoch-10-emb
