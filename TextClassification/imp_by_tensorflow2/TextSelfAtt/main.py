@@ -112,4 +112,8 @@ epochs = 10
 batch_size = 128
 max_features = 5000
 
-MODEL_NAME = 'TextSelfAtt-epoch-10-emb
+MODEL_NAME = 'TextSelfAtt-epoch-10-emb-80-gru'
+
+use_early_stop=True
+tensorboard_log_dir = 'logs\\{}'.format(MODEL_NAME)
+# checkpoint_path = "save_model_dir\\{}\\cp-{epoch:04d}.ckpt".format(MODE
