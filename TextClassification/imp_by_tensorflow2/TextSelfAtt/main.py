@@ -116,4 +116,8 @@ MODEL_NAME = 'TextSelfAtt-epoch-10-emb-80-gru'
 
 use_early_stop=True
 tensorboard_log_dir = 'logs\\{}'.format(MODEL_NAME)
-# checkpoint_path = "save_model_dir\\{}\\cp-{epoch:04d}.ckpt".format(MODE
+# checkpoint_path = "save_model_dir\\{}\\cp-{epoch:04d}.ckpt".format(MODEL_NAME, '')
+checkpoint_path = 'save_model_dir\\'+MODEL_NAME+'\\cp-{epoch:04d}.ckpt'
+#  ====================================================================
+
+prin
