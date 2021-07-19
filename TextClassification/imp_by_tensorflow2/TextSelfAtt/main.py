@@ -126,4 +126,9 @@ print('Loading data...')
 print('Pad sequences (samples x time)...')
 x_train = pad_sequences(x_train, maxlen=maxlen, padding='post')
 x_test = pad_sequences(x_test, maxlen=maxlen, padding='post')
-print('x_train shape:', x_train.sh
+print('x_train shape:', x_train.shape)
+print('x_test shape:', x_test.shape)
+
+model_hepler = ModelHepler(class_num=class_num,
+                           maxlen=maxlen,
+                  
