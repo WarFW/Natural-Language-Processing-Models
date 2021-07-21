@@ -144,4 +144,9 @@ print('Test...')
 result = model_hepler.model.predict(x_test)
 test_score = model_hepler.model.evaluate(x_test, y_test,
                             batch_size=batch_size)
-print("test loss:", test_score[0], "te
+print("test loss:", test_score[0], "test accuracy", test_score[1])
+
+print('Restored Model...')
+model_hepler = ModelHepler(class_num=class_num,
+                           maxlen=maxlen,
+                      
