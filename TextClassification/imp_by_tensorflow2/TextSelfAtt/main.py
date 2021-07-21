@@ -134,4 +134,6 @@ model_hepler = ModelHepler(class_num=class_num,
                            max_features=max_features,
                            embedding_dims=embedding_dims,
                            epochs=epochs,
-               
+                           batch_size=batch_size
+                           )
+model_hepler.get_callback(use_early_stop=use_early_stop, tensorboard_log_dir=tensor
