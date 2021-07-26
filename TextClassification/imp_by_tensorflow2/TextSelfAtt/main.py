@@ -152,4 +152,8 @@ model_hepler = ModelHepler(class_num=class_num,
                            max_features=max_features,
                            embedding_dims=embedding_dims,
                            epochs=epochs,
-                           batch_size=b
+                           batch_size=batch_size
+                           )
+model_hepler.load_model(checkpoint_path=checkpoint_path)
+# 重新评估模型  0.8832
+loss, acc = model_hepler.model.evaluate(x_test, y_test,
