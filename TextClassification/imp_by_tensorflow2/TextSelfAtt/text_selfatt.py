@@ -20,4 +20,8 @@ class TextSelfAtt(Model):
 
     def __init__(self,
                  maxlen,
-        
+                 max_features,
+                 embedding_dims,
+                 class_num,
+                 last_activation='softmax',
+                 dense
