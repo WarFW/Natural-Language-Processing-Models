@@ -12,4 +12,12 @@ from TextClassification.imp_by_tensorflow2.TextSelfAtt.attention import MultiHea
 
 def point_wise_feed_forward_network(dense_size):
     ffn = tf.keras.Sequential()
-  
+    for size in dense_size:
+        ffn.add(Dense(size, activation='relu'))
+    return ffn
+
+class TextSelfAtt(Model):
+
+    def __init__(self,
+                 maxlen,
+        
