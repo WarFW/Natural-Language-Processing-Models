@@ -24,4 +24,11 @@ class TextSelfAtt(Model):
                  embedding_dims,
                  class_num,
                  last_activation='softmax',
-                 dense
+                 dense_size=None
+                 ):
+        '''
+        :param maxlen: 文本最大长度
+        :param max_features: 词典大小
+        :param embedding_dims: embedding维度大小
+        :param class_num:
+        :p
