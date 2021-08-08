@@ -36,4 +36,7 @@ class TextSelfAtt(Model):
         super(TextSelfAtt, self).__init__()
         self.maxlen = maxlen
         self.max_features = max_features
-  
+        self.embedding_dims = embedding_dims
+        self.class_num = class_num
+        self.last_activation = last_activation
+        self.dense_size =
