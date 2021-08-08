@@ -39,4 +39,7 @@ class TextSelfAtt(Model):
         self.embedding_dims = embedding_dims
         self.class_num = class_num
         self.last_activation = last_activation
-        self.dense_size =
+        self.dense_size = dense_size
+
+        self.embedding = Embedding(input_dim=self.max_features, output_dim=self.embedding_dims, input_length=self.maxlen)
+        self
