@@ -42,4 +42,5 @@ class TextSelfAtt(Model):
         self.dense_size = dense_size
 
         self.embedding = Embedding(input_dim=self.max_features, output_dim=self.embedding_dims, input_length=self.maxlen)
-        self
+        self.attention = MultiHeadAttention(d_model=embedding_dims, num_heads=4)
+        self.bi_rnn = Bidirectional(layer=GRU(units=400, activation='tanh', return_sequences=True)
