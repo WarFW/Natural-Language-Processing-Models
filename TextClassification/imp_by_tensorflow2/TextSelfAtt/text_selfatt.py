@@ -47,4 +47,8 @@ class TextSelfAtt(Model):
 
         if self.dense_size is not None:
             self.ffn = point_wise_feed_forward_network(dense_size)
-        self.classifier = Dense(
+        self.classifier = Dense(self.class_num, activation=self.last_activation)
+
+    def call(self, inputs, training=None, mask=None):
+        if len(inputs.get_shape()) != 2:
+            raise ValueError
