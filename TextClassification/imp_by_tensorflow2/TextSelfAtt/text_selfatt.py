@@ -43,4 +43,8 @@ class TextSelfAtt(Model):
 
         self.embedding = Embedding(input_dim=self.max_features, output_dim=self.embedding_dims, input_length=self.maxlen)
         self.attention = MultiHeadAttention(d_model=embedding_dims, num_heads=4)
-        self.bi_rnn = Bidirectional(layer=GRU(units=400, activation='tanh', return_sequences=True)
+        self.bi_rnn = Bidirectional(layer=GRU(units=400, activation='tanh', return_sequences=True), merge_mode='ave' ) # LSTM or GRU
+
+        if self.dense_size is not None:
+            self.ffn = point_wise_feed_forward_network(dense_size)
+        self.classifier = Dense(
