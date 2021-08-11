@@ -60,4 +60,9 @@ class TextSelfAtt(Model):
         x = self.bi_rnn(x)
         # x = tf.reduce_mean(x, axis=1)
         x = tf.reshape(x,  shape=(-1, 400*self.maxlen))
-        if self.dense_si
+        if self.dense_size is not None:
+            x = self.ffn(x)
+        output = self.classifier(x)
+        return output
+
+    def build_graph(self, input_s
