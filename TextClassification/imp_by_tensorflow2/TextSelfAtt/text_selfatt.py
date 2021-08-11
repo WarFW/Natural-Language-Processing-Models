@@ -53,4 +53,7 @@ class TextSelfAtt(Model):
         if len(inputs.get_shape()) != 2:
             raise ValueError('The rank of inputs of TextBiRNNAtt must be 2, but now is {}'.format(inputs.get_shape()))
         if inputs.get_shape()[1] != self.maxlen:
-            raise ValueError(
+            raise ValueError('The maxlen of inputs of TextBiRNNAtt must be %d, but now is %d' % (self.maxlen, inputs.get_shape()[1]))
+
+        x = self.embedding(inputs)
+        x = self.attention(x, x, x)
