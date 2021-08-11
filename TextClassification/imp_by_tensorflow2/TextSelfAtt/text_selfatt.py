@@ -57,3 +57,7 @@ class TextSelfAtt(Model):
 
         x = self.embedding(inputs)
         x = self.attention(x, x, x)
+        x = self.bi_rnn(x)
+        # x = tf.reduce_mean(x, axis=1)
+        x = tf.reshape(x,  shape=(-1, 400*self.maxlen))
+        if self.dense_si
