@@ -74,4 +74,8 @@ class TextSelfAtt(Model):
         _ = self.call(inputs)
 
 if __name__=='__main__':
-    model 
+    model = TextSelfAtt(maxlen=400,
+                        max_features=5000,
+                        embedding_dims=400,
+                        class_num=2,
+                      
