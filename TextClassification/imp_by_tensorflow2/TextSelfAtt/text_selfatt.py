@@ -78,4 +78,8 @@ if __name__=='__main__':
                         max_features=5000,
                         embedding_dims=400,
                         class_num=2,
-                      
+                        last_activation='softmax',
+                        dense_size=[128, 64],
+                        # dense_size = None
+                        )
+ 
