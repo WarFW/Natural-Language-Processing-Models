@@ -82,4 +82,5 @@ if __name__=='__main__':
                         dense_size=[128, 64],
                         # dense_size = None
                         )
- 
+    model.build_graph(input_shape=(None, 400))
+    model.summary()
