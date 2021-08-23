@@ -17,4 +17,6 @@ tf.random.set_seed(0)
 
 import os
 from tensorflow.keras.callbacks import EarlyStopping, TensorBoard, ModelCheckpoint
-from tens
+from tensorflow.keras.datasets import imdb
+from tensorflow.keras.preprocessing.sequence import pad_sequences
+from TextClassification.imp_by_tensorflow2.TextTransform
