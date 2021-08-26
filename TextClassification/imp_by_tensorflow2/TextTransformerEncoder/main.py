@@ -19,4 +19,10 @@ import os
 from tensorflow.keras.callbacks import EarlyStopping, TensorBoard, ModelCheckpoint
 from tensorflow.keras.datasets import imdb
 from tensorflow.keras.preprocessing.sequence import pad_sequences
-from TextClassification.imp_by_tensorflow2.TextTransform
+from TextClassification.imp_by_tensorflow2.TextTransformerEncoder.modeling import TextTransformerEncoder
+
+def create_padding_mask(seq):
+    seq = tf.cast(tf.math.equal(seq, 0), tf.float32)
+    # 添加额外的维度来将填充加到
+    # 注意力对数（logits）。
+    
