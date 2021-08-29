@@ -33,4 +33,9 @@ def checkout_dir(dir_path, do_delete=False):
         shutil.rmtree(dir_path)
     if not os.path.exists(dir_path):
         print(dir_path, 'make dir ok')
-        os.m
+        os.makedirs(dir_path)
+
+
+class ModelHepler:
+    def __init__(self, class_num, maxlen, max_features, embedding_dims, epochs, batch_size, num_layers,
+                 num_h
