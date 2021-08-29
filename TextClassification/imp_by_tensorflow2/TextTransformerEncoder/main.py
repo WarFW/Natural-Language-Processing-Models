@@ -49,4 +49,10 @@ class ModelHepler:
         self.batch_size = batch_size
         self.callback_list = []
 
-  
+        self.num_layers = num_layers
+        self.num_heads = num_heads
+        self.dff = dff
+        self.pe_input = pe_input
+
+    def create_model(self):
+ 
