@@ -43,4 +43,10 @@ class ModelHepler:
                  pe_input,):
         self.class_num = class_num
         self.maxlen = maxlen
-        self.max_features = max
+        self.max_features = max_features
+        self.embedding_dims = embedding_dims
+        self.epochs = epochs
+        self.batch_size = batch_size
+        self.callback_list = []
+
+  
