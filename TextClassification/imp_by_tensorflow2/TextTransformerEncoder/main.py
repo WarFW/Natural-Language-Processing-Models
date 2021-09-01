@@ -61,4 +61,7 @@ class ModelHepler:
                          max_features=self.max_features,
                          embedding_dims=self.embedding_dims,
                          class_num=self.class_num,
-                                       num_layers=self.n
+                                       num_layers=self.num_layers,
+                                       num_heads=self.num_heads,
+                                       dff=self.dff,
+                            
