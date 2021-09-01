@@ -55,4 +55,5 @@ class ModelHepler:
         self.pe_input = pe_input
 
     def create_model(self):
- 
+        input_seq = tf.keras.layers.Input((self.maxlen, ), dtype=tf.int64, name='inputs_seq')
+        input_mask = tf.keras.layers.Input((1,1,s
