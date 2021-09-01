@@ -59,4 +59,6 @@ class ModelHepler:
         input_mask = tf.keras.layers.Input((1,1,self.maxlen), dtype=tf.float32, name='inputs_mask')
         internal_model = TextTransformerEncoder(maxlen=self.maxlen,
                          max_features=self.max_features,
-        
+                         embedding_dims=self.embedding_dims,
+                         class_num=self.class_num,
+                                       num_layers=self.n
