@@ -68,4 +68,6 @@ class ModelHepler:
                          last_activation='softmax',
                           # dense_size=[128]
                           )
-        logits 
+        logits = internal_model(input_seq, enc_padding_mask=input_mask)
+        logits = tf.keras.layers.Lambda(lambda x: x, name="logits",
+                   
