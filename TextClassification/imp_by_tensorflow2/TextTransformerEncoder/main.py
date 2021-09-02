@@ -64,4 +64,8 @@ class ModelHepler:
                                        num_layers=self.num_layers,
                                        num_heads=self.num_heads,
                                        dff=self.dff,
-                            
+                                       pe_input=self.pe_input,
+                         last_activation='softmax',
+                          # dense_size=[128]
+                          )
+        logits 
