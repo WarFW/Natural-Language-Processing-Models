@@ -70,4 +70,7 @@ class ModelHepler:
                           )
         logits = internal_model(input_seq, enc_padding_mask=input_mask)
         logits = tf.keras.layers.Lambda(lambda x: x, name="logits",
-                   
+                                        dtype=tf.float32)(logits)
+        model = tf.keras.Model([input_seq, input_mask], logits)
+        model.compile(
+            o
