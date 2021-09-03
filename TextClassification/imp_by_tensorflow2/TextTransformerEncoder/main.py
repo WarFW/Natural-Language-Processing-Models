@@ -73,4 +73,8 @@ class ModelHepler:
                                         dtype=tf.float32)(logits)
         model = tf.keras.Model([input_seq, input_mask], logits)
         model.compile(
-            o
+            optimizer='adam',
+            loss=tf.keras.losses.SparseCategoricalCrossentropy(),
+            metrics=['accuracy'],
+        )
+        # model.build_graph(input_shap
