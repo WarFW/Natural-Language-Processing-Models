@@ -77,4 +77,8 @@ class ModelHepler:
             loss=tf.keras.losses.SparseCategoricalCrossentropy(),
             metrics=['accuracy'],
         )
-        # model.build_graph(input_shap
+        # model.build_graph(input_shape=(None, self.maxlen))
+        model.summary()
+        self.model =  model
+
+    def get_callback(self, use_early_stop=True, tensorboard_log_dir='logs
