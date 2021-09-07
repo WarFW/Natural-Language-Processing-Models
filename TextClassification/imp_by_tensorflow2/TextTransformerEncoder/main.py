@@ -87,4 +87,7 @@ class ModelHepler:
             # EarlyStopping
             early_stopping = EarlyStopping(monitor='val_accuracy', patience=5, mode='max')
             callback_list.append(early_stopping)
-        if
+        if checkpoint_path is not None:
+            # save model
+            checkpoint_dir = os.path.dirname(checkpoint_path)
+            checkout_dir(checkpoint_d
