@@ -90,4 +90,7 @@ class ModelHepler:
         if checkpoint_path is not None:
             # save model
             checkpoint_dir = os.path.dirname(checkpoint_path)
-            checkout_dir(checkpoint_d
+            checkout_dir(checkpoint_dir, do_delete=True)
+            # 创建一个保存模型权重的回调
+            cp_callback = ModelCheckpoint(filepath=checkpoint_path,
+                                      
