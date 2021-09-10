@@ -93,4 +93,7 @@ class ModelHepler:
             checkout_dir(checkpoint_dir, do_delete=True)
             # 创建一个保存模型权重的回调
             cp_callback = ModelCheckpoint(filepath=checkpoint_path,
-                                      
+                                             monitor='val_accuracy',
+                                             mode='max',
+                                             save_best_only=True,
+    
