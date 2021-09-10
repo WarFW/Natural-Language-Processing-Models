@@ -98,4 +98,7 @@ class ModelHepler:
                                              save_best_only=True,
                                              save_weights_only=True,
                                              verbose=1,
-                 
+                                             period=1,
+                                             )
+            callback_list.append(cp_callback)
+        if tensorboard_log_dir is n
