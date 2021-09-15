@@ -111,4 +111,7 @@ class ModelHepler:
     def fit(self, x_train, y_train, x_val, y_val, x_train_mask, x_val_mask):
         print('Bulid Model...')
         self.create_model()
-        print('Tr
+        print('Train...')
+        self.model.fit([x_train, x_train_mask], y_train,
+                  batch_size=self.batch_size,
+                  epochs=self.epoch
