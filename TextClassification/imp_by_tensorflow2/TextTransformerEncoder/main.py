@@ -108,4 +108,7 @@ class ModelHepler:
             callback_list.append(tensorboard_callback)
         self.callback_list = callback_list
 
-   
+    def fit(self, x_train, y_train, x_val, y_val, x_train_mask, x_val_mask):
+        print('Bulid Model...')
+        self.create_model()
+        print('Tr
