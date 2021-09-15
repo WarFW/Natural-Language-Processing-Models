@@ -114,4 +114,9 @@ class ModelHepler:
         print('Train...')
         self.model.fit([x_train, x_train_mask], y_train,
                   batch_size=self.batch_size,
-                  epochs=self.epoch
+                  epochs=self.epochs,
+                  verbose=2,
+                  callbacks=self.callback_list,
+                  validation_data=((x_val, x_val_mask), y_val))
+
+    def loa
