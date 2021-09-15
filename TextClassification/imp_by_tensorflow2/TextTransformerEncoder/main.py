@@ -119,4 +119,7 @@ class ModelHepler:
                   callbacks=self.callback_list,
                   validation_data=((x_val, x_val_mask), y_val))
 
-    def loa
+    def load_model(self, checkpoint_path):
+        self.create_model()
+        checkpoint_dir = os.path.dirname((checkpoint_path))
+        latest = tf.train.latest_checkpoint(che
