@@ -127,4 +127,12 @@ class ModelHepler:
         # 创建一个新的模型实例
         # model = self.create_model()
         # 加载以前保存的权重
-        self.model.load_weigh
+        self.model.load_weights(latest)
+
+# ================  params =========================
+class_num = 2
+maxlen = 400
+embedding_dims = 200
+epochs = 20
+batch_size = 128
+max_features = 
