@@ -135,4 +135,14 @@ maxlen = 400
 embedding_dims = 200
 epochs = 20
 batch_size = 128
-max_features = 
+max_features = 5000
+
+num_layers = 2
+num_heads = 4
+dff = 128
+pe_input = max_features
+
+MODEL_NAME = 'TextTransformerEncoder-epoch-20-emb-200'
+
+use_early_stop=True
+tensorb
