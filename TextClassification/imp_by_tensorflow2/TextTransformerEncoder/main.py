@@ -147,4 +147,8 @@ MODEL_NAME = 'TextTransformerEncoder-epoch-20-emb-200'
 use_early_stop=True
 tensorboard_log_dir = 'logs\\{}'.format(MODEL_NAME)
 # checkpoint_path = "save_model_dir\\{}\\cp-{epoch:04d}.ckpt".format(MODEL_NAME, '')
-checkpoint_path = 'save_model_d
+checkpoint_path = 'save_model_dir\\'+MODEL_NAME+'\\cp-{epoch:04d}.ckpt'
+#  ====================================================================
+
+print('Loading data...')
+(x_train, y_train
