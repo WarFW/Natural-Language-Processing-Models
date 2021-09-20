@@ -145,4 +145,6 @@ pe_input = max_features
 MODEL_NAME = 'TextTransformerEncoder-epoch-20-emb-200'
 
 use_early_stop=True
-tensorb
+tensorboard_log_dir = 'logs\\{}'.format(MODEL_NAME)
+# checkpoint_path = "save_model_dir\\{}\\cp-{epoch:04d}.ckpt".format(MODEL_NAME, '')
+checkpoint_path = 'save_model_d
