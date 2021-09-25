@@ -165,4 +165,8 @@ x_test_mask = create_padding_mask(x_test)
 print('x_train_mask shape:', x_train_mask.shape)
 
 #
-model_hepler = ModelHepler(class_num=clas
+model_hepler = ModelHepler(class_num=class_num,
+                           maxlen=maxlen,
+                           max_features=max_features,
+                           embedding_dims=embedding_dims,
+             
