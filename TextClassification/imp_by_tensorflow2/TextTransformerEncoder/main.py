@@ -151,4 +151,7 @@ checkpoint_path = 'save_model_dir\\'+MODEL_NAME+'\\cp-{epoch:04d}.ckpt'
 #  ====================================================================
 
 print('Loading data...')
-(x_train, y_train
+(x_train, y_train), (x_test, y_test) = imdb.load_data(num_words=max_features)
+
+print('Pad sequences (samples x time)...')
+x_train = pad_sequences(x_train, maxlen=maxlen
