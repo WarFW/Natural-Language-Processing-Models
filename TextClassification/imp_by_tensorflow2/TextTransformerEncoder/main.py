@@ -159,4 +159,10 @@ x_test = pad_sequences(x_test, maxlen=maxlen, padding='post')
 print('x_train shape:', x_train.shape)
 print('x_test shape:', x_test.shape)
 
-x_train_mask = create_pa
+x_train_mask = create_padding_mask(x_train)
+x_test_mask = create_padding_mask(x_test)
+
+print('x_train_mask shape:', x_train_mask.shape)
+
+#
+model_hepler = ModelHepler(class_num=clas
