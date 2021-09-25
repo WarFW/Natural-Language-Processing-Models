@@ -154,4 +154,9 @@ print('Loading data...')
 (x_train, y_train), (x_test, y_test) = imdb.load_data(num_words=max_features)
 
 print('Pad sequences (samples x time)...')
-x_train = pad_sequences(x_train, maxlen=maxlen
+x_train = pad_sequences(x_train, maxlen=maxlen, padding='post')
+x_test = pad_sequences(x_test, maxlen=maxlen, padding='post')
+print('x_train shape:', x_train.shape)
+print('x_test shape:', x_test.shape)
+
+x_train_mask = create_pa
