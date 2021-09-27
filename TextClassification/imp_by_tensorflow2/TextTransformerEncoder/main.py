@@ -176,4 +176,5 @@ model_hepler = ModelHepler(class_num=class_num,
                         dff=dff,
                         pe_input=pe_input
                            )
-model_hepler.get_callback(use_early_st
+model_hepler.get_callback(use_early_stop=use_early_stop, tensorboard_log_dir=tensorboard_log_dir, checkpoint_path=checkpoint_path)
+model_hepler.fit(x_train=x_train, y_train=y_train
