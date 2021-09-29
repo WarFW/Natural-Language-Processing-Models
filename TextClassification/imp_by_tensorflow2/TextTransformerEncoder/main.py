@@ -177,4 +177,9 @@ model_hepler = ModelHepler(class_num=class_num,
                         pe_input=pe_input
                            )
 model_hepler.get_callback(use_early_stop=use_early_stop, tensorboard_log_dir=tensorboard_log_dir, checkpoint_path=checkpoint_path)
-model_hepler.fit(x_train=x_train, y_train=y_train
+model_hepler.fit(x_train=x_train, y_train=y_train, x_val=x_test, y_val=y_test, x_train_mask=x_train_mask, x_val_mask=x_test_mask)
+
+
+print('Test predict...')
+result = model_hepler.model.predict((x_test, x_test_mask))
+prin
