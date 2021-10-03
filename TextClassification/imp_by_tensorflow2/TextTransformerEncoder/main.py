@@ -182,4 +182,7 @@ model_hepler.fit(x_train=x_train, y_train=y_train, x_val=x_test, y_val=y_test, x
 
 print('Test predict...')
 result = model_hepler.model.predict((x_test, x_test_mask))
-prin
+print('Test evaluate...')
+test_score = model_hepler.model.evaluate((x_test, x_test_mask), y_test,
+                            batch_size=batch_size)
+print("test loss
