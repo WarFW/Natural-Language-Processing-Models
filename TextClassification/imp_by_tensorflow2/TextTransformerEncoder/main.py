@@ -193,4 +193,7 @@ model_hepler = ModelHepler(class_num=class_num,
                            maxlen=maxlen,
                            max_features=max_features,
                            embedding_dims=embedding_dims,
-            
+                           epochs=epochs,
+                           batch_size=batch_size,
+                           num_layers=num_layers,
+                   
