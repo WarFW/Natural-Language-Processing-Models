@@ -140,3 +140,119 @@ class EncoderLayer(tf.keras.layers.Layer):
         ffn_output = self.dropout2(ffn_output, training=training)
         out2 = self.layer_norm2(out1+ffn_output) # (batch_size, input_seq_len, d_model)
         return out2
+
+
+
+class Encoder(tf.keras.layers.Layer):
+    '''
+    输入嵌入（Input Embedding）
+    位置编码（Positional Encoding）
+    N 个编码器层（encoder layers）
+    输入经过嵌入（embedding）后，该嵌入与位置编码相加。该加法结果的输出是编码器层的输入。编码器的输出是解码器的输入。
+    '''
+    def __init__(self, num_layers, d_model, num_heads, dff, input_vocab_size, maximum_position_encoding, rate=0.1):
+        super(Encoder, self).__init__()
+        self.d_model = d_model
+        self.num_layers = num_layers
+        self.embedding = tf.keras.layers.Embedding(input_vocab_size, d_model)
+        self.pos_encoding = positional_encoding(maximum_position_encoding, d_model)
+
+        self.enc_layer = [EncoderLayer(d_model, num_heads, dff, rate) for _ in range(num_layers)]
+        self.dropout = tf.keras.layers.Dropout(rate)
+
+    def call(self, x, training, mask):
+        # mask == (batch_size, 1, 1, seq_len) 后面会自动广播成（batch_size, num_heads, seq_len_q, seq_len_k)
+        # x.shape == (batch_size, seq_len)
+        seq_len = tf.shape(x)[1]
+        x = self.embedding(x) # (batch_size, input_seq_len, d_model)
+        x *= tf.math.sqrt(tf.cast(self.d_model, dtype=tf.float32))
+        x += self.pos_encoding[:, :seq_len, :]
+
+        x = self.dropout(x, training=training)
+
+        for i in range(self.num_layers):
+            x = self.enc_layer[i](x, training, mask)
+        return  x #(batch_size, input_seq_len, d_model)
+
+class TextTransformerEncoder(tf.keras.Model):
+    def __init__(self,
+                 maxlen,
+                 max_features,
+                 embedding_dims,
+                 class_num,
+                 num_layers,
+                 num_heads,
+                 dff,
+                 pe_input,
+                 last_activation = 'softmax',
+                 rate=0.1):
+        super(TextTransformerEncoder, self).__init__()
+        self.maxlen = maxlen
+        self.embedding_dims = embedding_dims
+        self.encoder = Encoder(num_layers, embedding_dims, num_heads, dff, max_features, pe_input, rate)
+        # self.flat = tf.keras.layers.Flatten()
+        self.final_layer = tf.keras.layers.Dense(class_num, activation=last_activation)
+
+    def call(self, inp, training=False, enc_padding_mask=None):
+        # mask == (batch_size, 1, 1, seq_len) 后面会自动广播成（batch_size, num_heads, seq_len, seq_len)
+        # (batch_size, inp_seq_len, d_model)
+        print('========= : ', training)
+        enc_output = self.encoder(inp, training, enc_padding_mask)
+        # enc_output = tf.reshape(enc_output, (-1, self.maxlen*self.embedding_dims))
+        # enc_output = self.flat(enc_output)
+        enc_output = tf.reduce_mean(enc_output, axis=1)
+        final_output = self.final_layer(enc_output)  # (batch_size, tar_seq_len, target_vocab_size)
+        return final_output
+
+    def build_graph(self, input_shapes):
+        input_shape, _ = input_shapes
+        input_shape_nobatch = input_shape[1:]
+        self.build(input_shape)
+        inputs = tf.keras.Input(shape=input_shape_nobatch)
+        if not hasattr(self, 'call'):
+            raise AttributeError("User should define 'call' method in sub-class model!")
+        _ = self.call(inputs)
+
+
+
+if __name__=='__main__':
+    class_num = 2
+    maxlen = 400
+    embedding_dims = 400
+    epochs = 10
+    batch_size = 128
+    max_features = 5000
+
+    num_layers = 2
+    num_heads = 8
+    dff = 2048
+    pe_input = 10000
+    model = TextTransformerEncoder(
+                        maxlen=maxlen,
+                        max_features=max_features,
+                        embedding_dims=embedding_dims,
+                        class_num=class_num,
+                        num_layers=num_layers,
+                        num_heads=num_heads,
+                        dff=dff,
+                        pe_input=pe_input
+                        )
+    # model.build_graph(input_shapes=(None, maxlen))
+    # model.summary()
+    temp_input = tf.random.uniform((64, maxlen))
+
+    # fn_out= model(temp_input, training=False, enc_padding_mask=None)
+    fn_out= model([temp_input, None], training=False)
+
+    print(fn_out.shape)
+
+
+
+
+
+
+
+
+
+
+
