@@ -196,4 +196,8 @@ model_hepler = ModelHepler(class_num=class_num,
                            epochs=epochs,
                            batch_size=batch_size,
                            num_layers=num_layers,
-                   
+                           num_heads=num_heads,
+                           dff=dff,
+                           pe_input=pe_input
+                           )
+model_hepler.load_model(chec
