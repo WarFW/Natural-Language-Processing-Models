@@ -12,4 +12,8 @@ import matplotlib.pyplot as plt
 import os
 from Transformer.imp_by_tensorflow20_custom.modeling import Transformer
 
-def create_model(par
+def create_model(params, is_train):
+    """Creates transformer model."""
+    with tf.name_scope("model"):
+        if is_train:
+            inputs = tf.keras.layers.Input((None,)
