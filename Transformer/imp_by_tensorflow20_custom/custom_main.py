@@ -5,4 +5,11 @@
 # @Software: PyCharm
 
 import tensorflow_datasets as tfds
-import tensorf
+import tensorflow as tf
+import time
+import numpy as np
+import matplotlib.pyplot as plt
+import os
+from Transformer.imp_by_tensorflow20_custom.modeling import Transformer
+
+def create_model(par
