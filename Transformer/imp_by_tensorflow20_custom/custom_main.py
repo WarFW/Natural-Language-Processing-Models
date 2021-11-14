@@ -16,4 +16,6 @@ def create_model(params, is_train):
     """Creates transformer model."""
     with tf.name_scope("model"):
         if is_train:
-            inputs = tf.keras.layers.Input((None,)
+            inputs = tf.keras.layers.Input((None,), dtype='int64', name="inputs")
+            targets = tf.keras.layers.Input((None,), dtype='int64', name="targets")
+            internal_model = Transformer(params
