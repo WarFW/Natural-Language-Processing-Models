@@ -23,4 +23,8 @@ def create_model(params, is_train):
             # logits = tf.keras.layers.Lambda(lambda x: x, name="logits", dtype=tf.float32)(logits)
             model = tf.keras.Model([inputs, targets], logits)
             model.compile(
-                optimizer='ad
+                optimizer='adam',
+                loss=tf.keras.losses.SparseCategoricalCrossentropy(),
+                metrics=['accuracy'],
+            )
+            # model.build_
