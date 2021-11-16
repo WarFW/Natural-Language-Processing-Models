@@ -20,4 +20,7 @@ def create_model(params, is_train):
             targets = tf.keras.layers.Input((None,), dtype='int64', name="targets")
             internal_model = Transformer(params,)
             logits = internal_model([inputs, targets], training=is_train)
-            # logits = tf.keras.layers.Lambda(lambda x: x, name="logits", 
+            # logits = tf.keras.layers.Lambda(lambda x: x, name="logits", dtype=tf.float32)(logits)
+            model = tf.keras.Model([inputs, targets], logits)
+            model.compile(
+                optimizer='ad
