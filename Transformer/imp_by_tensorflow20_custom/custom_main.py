@@ -27,4 +27,8 @@ def create_model(params, is_train):
                 loss=tf.keras.losses.SparseCategoricalCrossentropy(),
                 metrics=['accuracy'],
             )
-            # model.build_
+            # model.build_graph(input_shape=(None, self.maxlen))
+            # model.summary()
+            return model
+        else:
+            inputs = tf.keras.layers.Input((None,), dtype="in
