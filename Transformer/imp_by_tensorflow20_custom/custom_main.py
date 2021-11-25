@@ -31,4 +31,7 @@ def create_model(params, is_train):
             # model.summary()
             return model
         else:
-            inputs = tf.keras.layers.Input((None,), dtype="in
+            inputs = tf.keras.layers.Input((None,), dtype="int64", name="inputs")
+            internal_model = Transformer(params, name="transformer_v2")
+            ret = internal_model([inputs], training=is_train)
+            outp
