@@ -34,4 +34,11 @@ def create_model(params, is_train):
             inputs = tf.keras.layers.Input((None,), dtype="int64", name="inputs")
             internal_model = Transformer(params, name="transformer_v2")
             ret = internal_model([inputs], training=is_train)
-            outp
+            outputs, scores = ret["outputs"], ret["scores"]
+            return tf.keras.Model(inputs, [outputs, scores])
+
+
+
+
+params = {
+        'num_layers':2,
