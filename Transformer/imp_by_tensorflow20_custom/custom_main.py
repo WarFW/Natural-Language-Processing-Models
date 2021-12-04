@@ -42,3 +42,10 @@ def create_model(params, is_train):
 
 params = {
         'num_layers':2,
+        'd_model':512,
+        'num_heads' :8,
+        'dff' :2048,
+        'input_vocab_size' : 9,
+        'target_vocab_size' :9,
+        'pe_input' :100,
+ 
