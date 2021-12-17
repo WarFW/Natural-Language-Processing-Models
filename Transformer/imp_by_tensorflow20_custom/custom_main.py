@@ -60,3 +60,7 @@ inp = np.array([[1,2,3,4,5,6,7,8,0,0,],
 # inp = tf.convert_to_tensor(inp, dtype=tf.int64)
 
 tar = np.array([[1,2,3,4,5,6,7,8,0,0,],
+                [1,2,3,4,5,6,7,8,0,0,]])
+# tar = tf.convert_to_tensor(tar, dtype=tf.int64)
+
+inp = tf.random.uniform((64, 62), maxval=params['input_vocab_size'
