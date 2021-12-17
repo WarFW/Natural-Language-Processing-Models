@@ -48,4 +48,10 @@ params = {
         'input_vocab_size' : 9,
         'target_vocab_size' :9,
         'pe_input' :100,
- 
+        'pe_target' : 100,
+        'rate':0.1,
+        'tar_max_len':200
+        }
+model = create_model(params, is_train=True)
+
+inp = np.array([[1,2,3,4,5,6,
