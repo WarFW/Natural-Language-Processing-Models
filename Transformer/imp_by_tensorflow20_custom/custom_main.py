@@ -54,4 +54,9 @@ params = {
         }
 model = create_model(params, is_train=True)
 
-inp = np.array([[1,2,3,4,5,6,
+inp = np.array([[1,2,3,4,5,6,7,8,0,0,],
+                [1,2,3,4,5,6,7,8,0,0,]])
+
+# inp = tf.convert_to_tensor(inp, dtype=tf.int64)
+
+tar = np.array([[1,2,3,4,5,6,7,8,0,0,],
