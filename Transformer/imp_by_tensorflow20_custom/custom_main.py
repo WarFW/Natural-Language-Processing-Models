@@ -63,4 +63,10 @@ tar = np.array([[1,2,3,4,5,6,7,8,0,0,],
                 [1,2,3,4,5,6,7,8,0,0,]])
 # tar = tf.convert_to_tensor(tar, dtype=tf.int64)
 
-inp = tf.random.uniform((64, 62), maxval=params['input_vocab_size'
+inp = tf.random.uniform((64, 62), maxval=params['input_vocab_size'], dtype=tf.int64)
+tar = tf.random.uniform((64, 26), maxval=params['target_vocab_size'], dtype=tf.int64)
+
+print(inp[0])
+
+model.fit(x=[inp, tar], y=tar)
+
