@@ -4,4 +4,10 @@
 # @File : main.py
 # @Software: PyCharm
 
-import tensorflow_datasets as tf
+import tensorflow_datasets as tfds
+import tensorflow as tf
+import time
+import numpy as np
+import matplotlib.pyplot as plt
+from Transformer.imp_by_tensorflow20_custom.modeling import Transformer
+i
