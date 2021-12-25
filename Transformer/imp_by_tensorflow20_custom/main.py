@@ -20,4 +20,9 @@ tokenizer_en = tfds.features.text.SubwordTextEncoder.build_from_corpus(
     (en.numpy() for pt, en in train_examples), target_vocab_size=2**13)
 
 tokenizer_pt = tfds.features.text.SubwordTextEncoder.build_from_corpus(
-    (pt.numpy() fo
+    (pt.numpy() for pt, en in train_examples), target_vocab_size=2**13)
+
+
+def encode(lang1, lang2):
+    lang1 = [tokenizer_pt.vocab_size] + tokenizer_pt.encode(
+        lang1.numpy(
