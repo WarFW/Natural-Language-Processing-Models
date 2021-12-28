@@ -37,4 +37,8 @@ BUFFER_SIZE = 20000
 BATCH_SIZE = 64
 
 def filter_max_length(x, y, max_length=MAX_LENGTH):
-    return tf.logical_and(tf.size(x) <= max_
+    return tf.logical_and(tf.size(x) <= max_length,
+                        tf.size(y) <= max_length)
+def tf_encode(pt, en):
+    result_pt, result_en = tf.py_function(encode, [pt, en], [tf.int64, tf.int64])
+    r
