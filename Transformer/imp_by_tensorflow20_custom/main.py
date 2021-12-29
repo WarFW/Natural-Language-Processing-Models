@@ -41,4 +41,11 @@ def filter_max_length(x, y, max_length=MAX_LENGTH):
                         tf.size(y) <= max_length)
 def tf_encode(pt, en):
     result_pt, result_en = tf.py_function(encode, [pt, en], [tf.int64, tf.int64])
-    r
+    result_pt.set_shape([None])
+    result_en.set_shape([None])
+    return result_pt, result_en
+
+train_preprocessed = (
+    train_examples
+    .map(tf_encode)
+    .filter(fil
