@@ -55,4 +55,9 @@ train_preprocessed = (
 
 val_preprocessed = (
     val_examples
-    .map(tf_e
+    .map(tf_encode)
+    .filter(filter_max_length))
+
+train_dataset = (train_preprocessed
+                 .padded_batch(BATCH_SIZE, padded_shapes=([None], [None]))
+   
