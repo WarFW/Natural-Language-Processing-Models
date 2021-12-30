@@ -60,4 +60,8 @@ val_preprocessed = (
 
 train_dataset = (train_preprocessed
                  .padded_batch(BATCH_SIZE, padded_shapes=([None], [None]))
-   
+                 .prefetch(tf.data.experimental.AUTOTUNE))
+
+
+val_dataset = (val_preprocessed
+               .padded_batch(BATCH_SIZE,  padded_shapes=([None], 
