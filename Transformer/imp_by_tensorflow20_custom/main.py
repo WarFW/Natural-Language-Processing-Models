@@ -118,4 +118,6 @@ def create_masks(inp, tar):
     # 该填充遮挡用于遮挡编码器的输出。
     dec_padding_mask = create_padding_mask(inp)
     # 在解码器的第一个注意力模块使用。
-    # 用于填充（pad）和遮挡（mask）解码器获取到的输入的后续标记（future tokens
+    # 用于填充（pad）和遮挡（mask）解码器获取到的输入的后续标记（future tokens）。
+    look_ahead_mask = create_look_ahead_mask(tf.shape(tar)[1]) #(tar_seq_len, tar_seq_len)
+    dec_target_padding_mask = create_padding_mask(tar) #
