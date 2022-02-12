@@ -137,4 +137,12 @@ dff = 512
 num_heads = 8
 input_vocab_size = tokenizer_pt.vocab_size + 2
 target_vocab_size = tokenizer_en.vocab_size + 2
-print('input_vocab_size is {}, target_vocab_size is {}'.format(input_vocab_size, target_
+print('input_vocab_size is {}, target_vocab_size is {}'.format(input_vocab_size, target_vocab_size))
+dropout_rate = 0.1
+
+
+transformer  = Transformer(num_layers,
+                    d_model,
+                    num_heads,
+                    dff,
+               
