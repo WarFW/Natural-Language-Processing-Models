@@ -127,4 +127,12 @@ def create_masks(inp, tar):
     return enc_padding_mask, combined_mask, dec_padding_mask
 
 
-# ====
+# ==============================================================
+pe_input = 10000
+pe_target = 6000
+
+num_layers = 4
+d_model = 128
+dff = 512
+num_heads = 8
+input_vocab_size =
