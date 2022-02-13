@@ -173,3 +173,7 @@ train_loss = tf.keras.metrics.Mean(name='train_loss')
 train_accuracy = tf.keras.metrics.SparseCategoricalAccuracy(name='train_accuracy')
 
 # 检查点
+checkpoint_path = "./checkpoints/train"
+checkout_dir(dir_path=checkpoint_path, do_delete=True)
+ckpt = tf.train.Checkpoint(transformer=transformer,
+                 
