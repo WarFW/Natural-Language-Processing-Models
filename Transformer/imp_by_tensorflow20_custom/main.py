@@ -180,4 +180,11 @@ ckpt = tf.train.Checkpoint(transformer=transformer,
 ckpt_manager = tf.train.CheckpointManager(ckpt, checkpoint_path, max_to_keep=5)
 # 如果检查点存在，则恢复最新的检查点。
 if ckpt_manager.latest_checkpoint:
-    ckpt.restore
+    ckpt.restore(ckpt_manager.latest_checkpoint)
+    print ('Latest checkpoint restored!!')
+
+
+
+EPOCHS = 20
+# 该 @tf.function 将追踪-编译 train_step 到 TF 图中，以便更快地
+# 执行。该函数专用于参数张量的精确
