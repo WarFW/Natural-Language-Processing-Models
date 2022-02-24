@@ -212,4 +212,8 @@ def train_step(inp, tar):
                                      dec_padding_mask)
         loss = loss_function(tar_real, predictions)
 
-    gradients = tape.gradient(loss, transformer
+    gradients = tape.gradient(loss, transformer.trainable_variables)
+    optimizer.apply_gradients(zip(gradients, transformer.trainable_variables))
+
+    train_loss(loss)
+    train_accuracy(t
