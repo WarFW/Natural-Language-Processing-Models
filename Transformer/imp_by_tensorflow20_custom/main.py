@@ -209,4 +209,7 @@ def train_step(inp, tar):
                                      True,
                                      enc_padding_mask,
                                      combined_mask,
-  
+                                     dec_padding_mask)
+        loss = loss_function(tar_real, predictions)
+
+    gradients = tape.gradient(loss, transformer
