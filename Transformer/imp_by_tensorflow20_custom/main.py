@@ -229,4 +229,8 @@ for epoch in range(EPOCHS):
     for (batch, (inp, tar)) in enumerate(train_dataset):
         train_step(inp, tar)
 
-        if batch %
+        if batch % 50 == 0:
+            print('Epoch {} Batch {} Loss {:.4f} Accuracy {:.4f}'.format(
+                epoch + 1, batch, train_loss.result(), train_accuracy.result()))
+
+    if 
