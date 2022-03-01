@@ -236,4 +236,7 @@ for epoch in range(EPOCHS):
     if (epoch + 1) % 5 == 0:
         ckpt_save_path = ckpt_manager.save()
         print('Saving checkpoint for epoch {} at {}'.format(epoch + 1,
-              
+                                                            ckpt_save_path))
+
+    print('Epoch {} Loss {:.4f} Accuracy {:.4f}'.format(epoch + 1,
+                  
