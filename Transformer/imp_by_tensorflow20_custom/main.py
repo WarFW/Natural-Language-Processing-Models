@@ -242,4 +242,11 @@ for epoch in range(EPOCHS):
                                                         train_loss.result(),
                                                         train_accuracy.result()))
 
-    print('Time taken for 1 
+    print('Time taken for 1 epoch: {} secs\n'.format(time.time() - start))
+
+
+
+# 评估
+def evaluate(inp_sentence):
+    start_token = [tokenizer_pt.vocab_size]
+    end_token = [tokenizer_pt.vocab_size 
