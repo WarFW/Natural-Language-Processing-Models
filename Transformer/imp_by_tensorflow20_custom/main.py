@@ -249,4 +249,8 @@ for epoch in range(EPOCHS):
 # 评估
 def evaluate(inp_sentence):
     start_token = [tokenizer_pt.vocab_size]
-    end_token = [tokenizer_pt.vocab_size 
+    end_token = [tokenizer_pt.vocab_size + 1]
+
+    # 输入语句是葡萄牙语，增加开始和结束标记
+    inp_sentence = start_token + tokenizer_pt.encode(inp_sentence) + end_token
+    encoder_input = tf.expand_dims(inp_sentence, 
