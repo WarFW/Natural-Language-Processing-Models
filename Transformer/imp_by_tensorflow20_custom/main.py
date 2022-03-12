@@ -260,4 +260,8 @@ def evaluate(inp_sentence):
     decoder_input = [tokenizer_en.vocab_size]
     output = tf.expand_dims(decoder_input, 0)
 
-  
+    for i in range(MAX_LENGTH):
+        enc_padding_mask, combined_mask, dec_padding_mask = create_masks(
+            encoder_input, output)
+
+        # predictions.shape == (batch_size, 
