@@ -273,4 +273,8 @@ def evaluate(inp_sentence):
                                                      dec_padding_mask)
 
         # 从 seq_len 维度选择最后一个词
-        pr
+        predictions = predictions[:, -1:, :]  # (batch_size, 1, vocab_size)
+
+        predicted_id = tf.cast(tf.argmax(predictions, axis=-1), tf.int32)
+
+        # 如果 predicte
