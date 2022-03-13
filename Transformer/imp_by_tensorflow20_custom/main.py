@@ -267,4 +267,6 @@ def evaluate(inp_sentence):
         # predictions.shape == (batch_size, seq_len, vocab_size)
         predictions, attention_weights = transformer(encoder_input,
                                                      output,
-             
+                                                     False,
+                                                     enc_padding_mask,
+                                           
