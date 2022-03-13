@@ -269,4 +269,8 @@ def evaluate(inp_sentence):
                                                      output,
                                                      False,
                                                      enc_padding_mask,
-                                           
+                                                     combined_mask,
+                                                     dec_padding_mask)
+
+        # 从 seq_len 维度选择最后一个词
+        pr
