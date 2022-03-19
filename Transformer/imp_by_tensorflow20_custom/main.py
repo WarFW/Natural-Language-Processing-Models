@@ -298,4 +298,11 @@ def plot_attention_weights(attention, sentence, result, layer):
         ax = fig.add_subplot(2, 4, head + 1)
 
         # 画出注意力权重
-        ax.matshow(attention[head][:-1, :], cmap='v
+        ax.matshow(attention[head][:-1, :], cmap='viridis')
+
+        fontdict = {'fontsize': 10}
+
+        ax.set_xticks(range(len(sentence) + 2))
+        ax.set_yticks(range(len(result)))
+
+        ax.s
