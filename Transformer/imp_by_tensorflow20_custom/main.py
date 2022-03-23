@@ -312,4 +312,13 @@ def plot_attention_weights(attention, sentence, result, layer):
             fontdict=fontdict, rotation=90)
 
         ax.set_yticklabels([tokenizer_en.decode([i]) for i in result
-                            if i < tokeni
+                            if i < tokenizer_en.vocab_size],
+                           fontdict=fontdict)
+
+        ax.set_xlabel('Head {}'.format(head + 1))
+
+    plt.tight_layout()
+    plt.show()
+
+
+de
