@@ -324,4 +324,8 @@ def plot_attention_weights(attention, sentence, result, layer):
 def translate(sentence, plot=''):
     result, attention_weights = evaluate(sentence)
 
-    predicted_sentence = tokenizer_en.decode([i for i in resul
+    predicted_sentence = tokenizer_en.decode([i for i in result
+                                              if i < tokenizer_en.vocab_size])
+
+    print('Input: {}'.format(sentence))
+    print('Predicted tr
