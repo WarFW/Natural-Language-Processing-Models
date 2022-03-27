@@ -333,4 +333,9 @@ def translate(sentence, plot=''):
     if plot:
         plot_attention_weights(attention_weights, sentence, result, plot)
 
-translate("este é um problema que temo
+translate("este é um problema que temos que resolver.")
+print ("Real translation: this is a problem we have to solve .")
+
+
+translate("os meus vizinhos ouviram sobre esta ideia.")
+pr
