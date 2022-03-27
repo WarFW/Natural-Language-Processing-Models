@@ -328,4 +328,9 @@ def translate(sentence, plot=''):
                                               if i < tokenizer_en.vocab_size])
 
     print('Input: {}'.format(sentence))
-    print('Predicted tr
+    print('Predicted translation: {}'.format(predicted_sentence))
+
+    if plot:
+        plot_attention_weights(attention_weights, sentence, result, plot)
+
+translate("este é um problema que temo
