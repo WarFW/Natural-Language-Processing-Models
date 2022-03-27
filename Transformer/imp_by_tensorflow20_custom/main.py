@@ -338,4 +338,8 @@ print ("Real translation: this is a problem we have to solve .")
 
 
 translate("os meus vizinhos ouviram sobre esta ideia.")
-pr
+print ("Real translation: and my neighboring homes heard about this idea .")
+
+
+translate("este é o primeiro livro que eu fiz.", plot='decoder_layer4_block2')
+print ("Real
