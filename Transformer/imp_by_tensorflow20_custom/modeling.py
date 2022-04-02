@@ -253,3 +253,116 @@ class Decoder(tf.keras.layers.Layer):
     '''解码器包括：
     输出嵌入（Output Embedding）
     位置编码（Positional Encoding）
+    N 个解码器层（decoder layers）
+    目标（target）经过一个嵌入后，该嵌入和位置编码相加。该加法结果是解码器层的输入。解码器的输出是最后的线性层的输入。
+    '''
+    def __init__(self, num_layers, d_model, num_heads, dff, target_vocab_size, maximum_position_encoding, rate=0.1):
+        super(Decoder, self).__init__()
+        self.d_model = d_model
+        self.num_layers = num_layers
+
+        self.embedding = tf.keras.layers.Embedding(target_vocab_size, d_model)
+        self.pos_encoding = positional_encoding(maximum_position_encoding, d_model)
+        self.dec_layer = [DecoderLayer(d_model, num_heads, dff, rate) for _ in range(num_layers)]
+        self.dropout = tf.keras.layers.Dropout(rate)
+
+    def call(self, x, enc_output, training, look_ahead_mask, padding_mask):
+        # x.shape==(batch_size, target_seq_len)
+        # enc_output.shape==(batch_size, input_seq_len, d_model)
+        seq_len = tf.shape(x)[1]
+        attention_weights = {}
+
+        x = self.embedding(x) # (batch_size, target_seq_len, d_model)
+        x *= tf.math.sqrt(tf.cast(self.d_model, tf.float32))
+        x += self.pos_encoding[:, :seq_len, :]
+        x = self.dropout(x, training=training)
+
+        for i in range(self.num_layers):
+            x, block1, block2 = self.dec_layer[i](x, enc_output, training, look_ahead_mask, padding_mask)
+            attention_weights['decoder_layer{}_block1'.format(i + 1)] = block1
+            attention_weights['decoder_layer{}_block2'.format(i + 1)] = block2
+        # x.shape==(batch_size, target_seq_len, d_model)
+        return x, attention_weights
+
+
+class Transformer(tf.keras.Model):
+    def __init__(self, params):
+        super(Transformer, self).__init__()
+        self.params = params
+        self.encoder = Encoder(params['num_layers'],params['d_model'],params['num_heads'],params['dff'],params['input_vocab_size'],params['pe_input'],params['rate'])
+        self.decoder = Decoder(params['num_layers'],params['d_model'],params['num_heads'],params['dff'],params['target_vocab_size'],params['pe_target'],params['rate'])
+        self.final_layer = tf.keras.layers.Dense(params['target_vocab_size'])
+
+    def call(self, inputs, training):
+        if len(inputs)==2:
+            inp, tar = inputs[0], inputs[1]
+        else:
+            inp, tar = inputs[0], None
+        # enc_padding_mask = create_padding_mask(inp)
+        enc_padding_mask = None
+        # (batch_size, inp_seq_len, d_model)
+        enc_output = self.encoder(inp, training, enc_padding_mask)
+        if tar is None:
+            # return self.predict(enc_output, enc_padding_mask, training)
+            return enc_output, enc_padding_mask
+        else:
+            # tar = self.shift_targets(tar)
+            look_ahead_mask = create_look_ahead_mask(tf.shape(tar)[1])  # (tar_seq_len, tar_seq_len)
+            dec_target_padding_mask = create_padding_mask(tar)  # (batch_size, 1, 1, tar_seq_len)
+            # 广播机制，look_ahead_mask==>(batch_size, 1, tar_seq_len, tar_seq_len)
+            # dec_target_padding_mask ==> (batch_size, 1, tar_seq_len, tar_seq_len)
+            combined_mask = tf.maximum(dec_target_padding_mask, look_ahead_mask)
+            # combined_mask = None
+            # (batch_size, tar_seq_len, d_model)
+            dec_output, _ = self.decoder(tar, enc_output, training, combined_mask, enc_padding_mask)
+            final_output = self.final_layer(dec_output)  # (batch_size, tar_seq_len, target_vocab_size)
+            return final_output
+
+    def shift_targets(self, tar):
+        with tf.name_scope("shift_targets"):
+            # Shift targets to the right, and remove the last element
+            tar = tf.pad(tar, [[0, 0], [1, 0]])[:, :-1]
+        return tar
+
+    def build_graph(self, input_shape, target_shape):
+        input_shape_nobatch = input_shape[1:]
+        self.build(input_shape)
+        inputs = tf.keras.Input(shape=input_shape_nobatch)
+        if not hasattr(self, 'call'):
+            raise AttributeError("User should define 'call' method in sub-class model!")
+        _ = self.call(inputs)
+
+
+
+if __name__=='__main__':
+    parmas = {
+    'num_layers':2,
+    'd_model':512,
+    'num_heads' :8,
+    'dff' :2048,
+    'input_vocab_size' : 8500,
+    'target_vocab_size' :8000,
+    'pe_input' :10000,
+    'pe_target' : 6000,
+    'rate':0.1
+    }
+
+    model = Transformer(parmas)
+    # model.build_graph(input_shape=(None, 400))
+    # model.summary()
+    temp_input = tf.random.uniform((64, 62), maxval=parmas['input_vocab_size'], dtype=tf.int32)
+    temp_target = tf.random.uniform((64, 26), maxval=parmas['target_vocab_size'],  dtype=tf.int32)
+
+    fn_out = model([temp_input, temp_target], training=True)
+    print(fn_out.shape)
+
+
+
+
+
+
+
+
+
+
+
