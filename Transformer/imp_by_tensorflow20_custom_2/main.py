@@ -13,4 +13,8 @@ from Transformer.imp_by_tensorflow20_custom_2.modeling import Transformer
 import os
 
 examples, metadata = tfds.load('ted_hrlr_translate/pt_to_en', with_info=True,
-                               as_supervised=
+                               as_supervised=True)
+train_examples, val_examples = examples['train'], examples['validation']
+
+tokenizer_en = tfds.features.text.SubwordTextEncoder.build_from_corpus(
+    (en.
