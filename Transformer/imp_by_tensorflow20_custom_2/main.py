@@ -17,4 +17,7 @@ examples, metadata = tfds.load('ted_hrlr_translate/pt_to_en', with_info=True,
 train_examples, val_examples = examples['train'], examples['validation']
 
 tokenizer_en = tfds.features.text.SubwordTextEncoder.build_from_corpus(
-    (en.
+    (en.numpy() for pt, en in train_examples), target_vocab_size=2**13)
+
+tokenizer_pt = tfds.features.text.SubwordTextEncoder.build_from_corpus(
+    (pt.numpy() for pt, en in 
