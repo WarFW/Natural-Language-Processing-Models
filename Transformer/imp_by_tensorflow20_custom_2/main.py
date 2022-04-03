@@ -9,4 +9,8 @@ import tensorflow as tf
 import time
 import numpy as np
 import matplotlib.pyplot as plt
-from Transformer.imp_by_tensorflow20_custom_2.modeling impo
+from Transformer.imp_by_tensorflow20_custom_2.modeling import Transformer
+import os
+
+examples, metadata = tfds.load('ted_hrlr_translate/pt_to_en', with_info=True,
+                               as_supervised=
