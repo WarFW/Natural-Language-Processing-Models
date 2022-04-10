@@ -30,4 +30,11 @@ def encode(lang1, lang2):
     lang2 = [tokenizer_en.vocab_size] + tokenizer_en.encode(
         lang2.numpy()) + [tokenizer_en.vocab_size + 1]
 
-    re
+    return lang1, lang2
+
+MAX_LENGTH = 40
+BUFFER_SIZE = 20000
+BATCH_SIZE = 64
+
+def filter_max_length(x, y, max_length=MAX_LENGTH):
+    return tf.logical_
