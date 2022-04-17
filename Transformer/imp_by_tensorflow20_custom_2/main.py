@@ -51,4 +51,12 @@ train_preprocessed = (
     .filter(filter_max_length)
     # cache the dataset to memory to get a speedup while reading from it.
     .cache()
-    .
+    .shuffle(BUFFER_SIZE))
+
+val_preprocessed = (
+    val_examples
+    .map(tf_encode)
+    .filter(filter_max_length))
+
+train_dataset = (train_preprocessed
+                 .
