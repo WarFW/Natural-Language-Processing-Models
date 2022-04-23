@@ -70,4 +70,10 @@ val_dataset = (val_preprocessed
 
 def checkout_dir(dir_path, do_delete=False):
     import shutil
-    if do_delete and os.path.exists(di
+    if do_delete and os.path.exists(dir_path):
+        shutil.rmtree(dir_path)
+    if not os.path.exists(dir_path):
+        print(dir_path, 'make dir ok')
+        os.makedirs(dir_path)
+
+class CustomSchedule(tf.keras.o
