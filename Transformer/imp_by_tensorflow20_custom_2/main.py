@@ -76,4 +76,8 @@ def checkout_dir(dir_path, do_delete=False):
         print(dir_path, 'make dir ok')
         os.makedirs(dir_path)
 
-class CustomSchedule(tf.keras.o
+class CustomSchedule(tf.keras.optimizers.schedules.LearningRateSchedule):
+    def __init__(self, d_model, warmup_steps=4000):
+        super(CustomSchedule, self).__init__()
+
+     
