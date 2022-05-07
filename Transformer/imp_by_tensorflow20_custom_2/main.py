@@ -92,4 +92,8 @@ class CustomSchedule(tf.keras.optimizers.schedules.LearningRateSchedule):
         return tf.math.rsqrt(self.d_model) * tf.math.minimum(arg1, arg2)
 
 
-def
+def create_padding_mask(seq):
+    seq = tf.cast(tf.math.equal(seq, 0), tf.float32)
+    # 添加额外的维度来将填充加到
+    # 注意力对数（logits）。
+    return seq[:, tf.newaxis, tf.newaxis, :]
