@@ -103,4 +103,7 @@ def create_look_ahead_mask(size):
     eg.
     x = tf.random.uniform((1, 3))
     temp = create_look_ahead_mask(x.shape[1])
-    tem
+    temp:<tf.Tensor: shape=(3, 3), dtype=float32, numpy=
+            array([[0., 1., 1.],
+                   [0., 0., 1.],
+                   [0., 0., 0.]], dtype=float32
