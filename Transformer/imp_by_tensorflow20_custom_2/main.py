@@ -106,4 +106,11 @@ def create_look_ahead_mask(size):
     temp:<tf.Tensor: shape=(3, 3), dtype=float32, numpy=
             array([[0., 1., 1.],
                    [0., 0., 1.],
-                   [0., 0., 0.]], dtype=float32
+                   [0., 0., 0.]], dtype=float32)>
+    '''
+    mask = 1 - tf.linalg.band_part(tf.ones((size, size)), -1, 0)
+    return mask  # (seq_len, seq_len)
+
+def create_masks(inp, tar):
+    # 编码器填充遮挡
+  
