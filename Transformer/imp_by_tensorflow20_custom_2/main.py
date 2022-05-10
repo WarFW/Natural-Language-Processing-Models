@@ -113,4 +113,9 @@ def create_look_ahead_mask(size):
 
 def create_masks(inp, tar):
     # 编码器填充遮挡
-  
+    enc_padding_mask = create_padding_mask(inp)
+    # 在解码器的第二个注意力模块使用。
+    # 该填充遮挡用于遮挡编码器的输出。
+    dec_padding_mask = create_padding_mask(inp)
+    # 在解码器的第一个注意力模块使用。
+ 
