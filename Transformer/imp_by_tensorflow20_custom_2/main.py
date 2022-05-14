@@ -124,4 +124,9 @@ def create_masks(inp, tar):
     # 广播机制，look_ahead_mask==>(batch_size, 1, tar_seq_len, tar_seq_len)
     # dec_target_padding_mask ==> (batch_size, 1, tar_seq_len, tar_seq_len)
     combined_mask = tf.maximum(dec_target_padding_mask, look_ahead_mask)
-  
+    return enc_padding_mask, combined_mask, dec_padding_mask
+
+
+# ==============================================================
+params = {
+    'num_layers':4,
