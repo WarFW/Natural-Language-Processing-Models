@@ -134,4 +134,8 @@ params = {
     'dff':512,
     'num_heads':8,
     'input_vocab_size' :tokenizer_pt.vocab_size + 2,
-    'target_vocab_size':tokenizer_en.vocab_size + 
+    'target_vocab_size':tokenizer_en.vocab_size + 2,
+    'pe_input':tokenizer_pt.vocab_size + 2,
+    'pe_target':tokenizer_en.vocab_size + 2,
+    'rate':0.1,
+    'checkpoint_path':'./checkpoints/train
