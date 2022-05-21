@@ -138,4 +138,9 @@ params = {
     'pe_input':tokenizer_pt.vocab_size + 2,
     'pe_target':tokenizer_en.vocab_size + 2,
     'rate':0.1,
-    'checkpoint_path':'./checkpoints/train
+    'checkpoint_path':'./checkpoints/train',
+    'checkpoint_do_delete':False
+}
+
+
+print('input_vocab_size is {}, target_vocab_size is {}'.format(params['input_vocab_size'], params['target_vocab_siz
