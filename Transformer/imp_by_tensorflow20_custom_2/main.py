@@ -143,4 +143,12 @@ params = {
 }
 
 
-print('input_vocab_size is {}, target_vocab_size is {}'.format(params['input_vocab_size'], params['target_vocab_siz
+print('input_vocab_size is {}, target_vocab_size is {}'.format(params['input_vocab_size'], params['target_vocab_size']))
+
+
+class ModelHelper:
+
+    def __init__(self):
+        self.transformer  = Transformer(params)
+        # optimizer
+        learning_rate 
