@@ -156,4 +156,6 @@ class ModelHelper:
         self.loss_object = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True, reduction='none')
 
         # 主要为了累计一个epoch中的batch的loss，最后求平均，得到一个epoch的loss
-        
+        self.train_loss = tf.keras.metrics.Mean(name='train_loss')
+        # 主要为了累计一个epoch中的batch的acc，最后求平均，得到一个epoch的acc
+        self.train_accuracy = tf.keras.metrics.
