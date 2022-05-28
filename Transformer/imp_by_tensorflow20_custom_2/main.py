@@ -153,4 +153,7 @@ class ModelHelper:
         # optimizer
         learning_rate = CustomSchedule(params['d_model'])
         self.optimizer = tf.keras.optimizers.Adam(learning_rate, beta_1=0.9, beta_2=0.98, epsilon=1e-9)
-        self.loss_obje
+        self.loss_object = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True, reduction='none')
+
+        # 主要为了累计一个epoch中的batch的loss，最后求平均，得到一个epoch的loss
+        
