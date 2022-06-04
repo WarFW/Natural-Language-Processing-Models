@@ -165,4 +165,7 @@ class ModelHelper:
 
 
         # 检查点 params['checkpoint_path']如果不存在，则创建对应目录；如果存在，且checkpoint_do_delete=True时，则先删除目录在创建
-        checkout_dir(dir_
+        checkout_dir(dir_path=params['checkpoint_path'], do_delete=params.get('checkpoint_do_delete', False))
+        # 检查点
+        ckpt = tf.train.Checkpoint(transformer=self.transformer,
+  
