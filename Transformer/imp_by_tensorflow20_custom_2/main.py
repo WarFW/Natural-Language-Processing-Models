@@ -161,4 +161,8 @@ class ModelHelper:
         self.train_accuracy = tf.keras.metrics.SparseCategoricalAccuracy(name='train_accuracy')
 
         self.test_loss = tf.keras.metrics.Mean(name='test_loss')
-        self.test_accuracy = tf.keras.metrics.Spa
+        self.test_accuracy = tf.keras.metrics.SparseCategoricalAccuracy(name='test_accuracy')
+
+
+        # 检查点 params['checkpoint_path']如果不存在，则创建对应目录；如果存在，且checkpoint_do_delete=True时，则先删除目录在创建
+        checkout_dir(dir_
