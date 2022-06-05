@@ -169,4 +169,8 @@ class ModelHelper:
         # 检查点
         ckpt = tf.train.Checkpoint(transformer=self.transformer,
                                    optimizer=self.optimizer)
-        self.ckpt_manager = tf.train.CheckpointManager(ckpt, params['checkpoint_path'], max_to_kee
+        self.ckpt_manager = tf.train.CheckpointManager(ckpt, params['checkpoint_path'], max_to_keep=5)
+        # 如果检查点存在，则恢复最新的检查点。
+        if self.ckpt_manager.latest_checkpoint:
+            ckpt.restore(self.ckpt_manager.latest_checkpoint)
+            p
