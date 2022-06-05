@@ -184,4 +184,7 @@ class ModelHelper:
 
 
     train_step_signature = [
-        tf.Tensor
+        tf.TensorSpec(shape=(None, None), dtype=tf.int64),
+        tf.TensorSpec(shape=(None, None), dtype=tf.int64),
+    ]
+    @tf.function(input_signature
