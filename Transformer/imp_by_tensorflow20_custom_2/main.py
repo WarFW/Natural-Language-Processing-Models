@@ -173,4 +173,8 @@ class ModelHelper:
         # 如果检查点存在，则恢复最新的检查点。
         if self.ckpt_manager.latest_checkpoint:
             ckpt.restore(self.ckpt_manager.latest_checkpoint)
-            p
+            print('Latest checkpoint restored!!')
+
+    def loss_function(self, real, pred):
+        mask = tf.math.logical_not(tf.math.equal(real, 0))
+        loss_ = self.loss_objec
