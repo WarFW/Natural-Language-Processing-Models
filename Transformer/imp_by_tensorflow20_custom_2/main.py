@@ -168,4 +168,5 @@ class ModelHelper:
         checkout_dir(dir_path=params['checkpoint_path'], do_delete=params.get('checkpoint_do_delete', False))
         # 检查点
         ckpt = tf.train.Checkpoint(transformer=self.transformer,
-  
+                                   optimizer=self.optimizer)
+        self.ckpt_manager = tf.train.CheckpointManager(ckpt, params['checkpoint_path'], max_to_kee
