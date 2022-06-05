@@ -177,4 +177,11 @@ class ModelHelper:
 
     def loss_function(self, real, pred):
         mask = tf.math.logical_not(tf.math.equal(real, 0))
-        loss_ = self.loss_objec
+        loss_ = self.loss_object(real, pred)
+        mask = tf.cast(mask, dtype=loss_.dtype)
+        loss_ *= mask
+        return tf.reduce_mean(loss_)
+
+
+    train_step_signature = [
+        tf.Tensor
