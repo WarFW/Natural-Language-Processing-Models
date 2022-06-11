@@ -187,4 +187,9 @@ class ModelHelper:
         tf.TensorSpec(shape=(None, None), dtype=tf.int64),
         tf.TensorSpec(shape=(None, None), dtype=tf.int64),
     ]
-    @tf.function(input_signature
+    @tf.function(input_signature=train_step_signature)
+    def train_step(self, inp, tar):
+        tar_inp = tar[:, :-1]
+        tar_real = tar[:, 1:]
+
+        enc_padding_mask, combine
