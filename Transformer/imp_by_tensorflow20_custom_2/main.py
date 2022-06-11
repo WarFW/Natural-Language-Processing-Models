@@ -195,4 +195,7 @@ class ModelHelper:
         enc_padding_mask, combined_mask, dec_padding_mask = create_masks(inp, tar_inp)
 
         with tf.GradientTape() as tape:
-            predictions, _ = self.transformer
+            predictions, _ = self.transformer(inp, tar_inp,
+                                         True,
+                                         enc_padding_mask,
+                  
