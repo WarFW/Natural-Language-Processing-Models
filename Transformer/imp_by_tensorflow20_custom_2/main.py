@@ -198,4 +198,6 @@ class ModelHelper:
             predictions, _ = self.transformer(inp, tar_inp,
                                          True,
                                          enc_padding_mask,
-                  
+                                         combined_mask,
+                                         dec_padding_mask)
+            loss = self.loss_function(tar_real, predictio
