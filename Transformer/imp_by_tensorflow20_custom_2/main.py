@@ -200,4 +200,7 @@ class ModelHelper:
                                          enc_padding_mask,
                                          combined_mask,
                                          dec_padding_mask)
-            loss = self.loss_function(tar_real, predictio
+            loss = self.loss_function(tar_real, predictions)
+
+        gradients = tape.gradient(loss, self.transformer.trainable_variables)
+        self.optimizer.apply_gradients(zip(gradients, self.transfo
