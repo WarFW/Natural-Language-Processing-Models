@@ -209,4 +209,7 @@ class ModelHelper:
 
     @tf.function
     def test_step(self, inp, labels):
-        pred
+        predictions = self.predict(inp)
+        t_loss = self.loss_object(labels, predictions)
+        self.test_loss(t_loss)
+        self.test_accuracy(labels, pr
