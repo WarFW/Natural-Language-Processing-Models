@@ -212,4 +212,10 @@ class ModelHelper:
         predictions = self.predict(inp)
         t_loss = self.loss_object(labels, predictions)
         self.test_loss(t_loss)
-        self.test_accuracy(labels, pr
+        self.test_accuracy(labels, predictions)
+
+    def train(self, train_dataset):
+        for epoch in range(params['epochs']):
+            start = time.time()
+            self.train_loss.reset_states()
+ 
