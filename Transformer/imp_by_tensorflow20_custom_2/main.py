@@ -220,4 +220,7 @@ class ModelHelper:
             self.train_loss.reset_states()
             self.train_accuracy.reset_states()
             # inp -> portuguese, tar -> english
-            for (batch, (inp, tar)) in enumerate(train
+            for (batch, (inp, tar)) in enumerate(train_dataset):
+                self.train_step(inp, tar)
+                if batch % 50 == 0:
+                    print('Epoch {} Batch {} Loss {:.4f} Accuracy {:.4f
