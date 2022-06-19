@@ -218,4 +218,6 @@ class ModelHelper:
         for epoch in range(params['epochs']):
             start = time.time()
             self.train_loss.reset_states()
- 
+            self.train_accuracy.reset_states()
+            # inp -> portuguese, tar -> english
+            for (batch, (inp, tar)) in enumerate(train
