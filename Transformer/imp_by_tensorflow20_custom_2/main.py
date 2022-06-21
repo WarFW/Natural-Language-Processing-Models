@@ -223,4 +223,6 @@ class ModelHelper:
             for (batch, (inp, tar)) in enumerate(train_dataset):
                 self.train_step(inp, tar)
                 if batch % 50 == 0:
-                    print('Epoch {} Batch {} Loss {:.4f} Accuracy {:.4f
+                    print('Epoch {} Batch {} Loss {:.4f} Accuracy {:.4f}'.format(epoch + 1, batch, self.train_loss.result(), self.train_accuracy.result()))
+            if (epoch + 1) % 5 == 0:
+               
