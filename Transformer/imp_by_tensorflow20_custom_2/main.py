@@ -225,4 +225,6 @@ class ModelHelper:
                 if batch % 50 == 0:
                     print('Epoch {} Batch {} Loss {:.4f} Accuracy {:.4f}'.format(epoch + 1, batch, self.train_loss.result(), self.train_accuracy.result()))
             if (epoch + 1) % 5 == 0:
-               
+                ckpt_save_path = self.ckpt_manager.save()
+                print('Saving checkpoint for epoch {} at {}'.format(epoch + 1,ckpt_save_path))
+            prin
