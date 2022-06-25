@@ -228,4 +228,9 @@ class ModelHelper:
                 ckpt_save_path = self.ckpt_manager.save()
                 print('Saving checkpoint for epoch {} at {}'.format(epoch + 1,ckpt_save_path))
             print('Epoch {} Loss {:.4f} Accuracy {:.4f}'.format(epoch + 1, self.train_loss.result(), self.train_accuracy.result()))
-            print('Time taken for 1
+            print('Time taken for 1 epoch: {} secs\n'.format(time.time() - start))
+
+    # 评估
+    def predict(self, inp_sentence):
+        start_token = [tokenizer_pt.vocab_size]
+        end_token 
