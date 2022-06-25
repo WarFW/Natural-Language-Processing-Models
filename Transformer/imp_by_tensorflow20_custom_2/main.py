@@ -227,4 +227,5 @@ class ModelHelper:
             if (epoch + 1) % 5 == 0:
                 ckpt_save_path = self.ckpt_manager.save()
                 print('Saving checkpoint for epoch {} at {}'.format(epoch + 1,ckpt_save_path))
-            prin
+            print('Epoch {} Loss {:.4f} Accuracy {:.4f}'.format(epoch + 1, self.train_loss.result(), self.train_accuracy.result()))
+            print('Time taken for 1
