@@ -233,4 +233,8 @@ class ModelHelper:
     # 评估
     def predict(self, inp_sentence):
         start_token = [tokenizer_pt.vocab_size]
-        end_token 
+        end_token = [tokenizer_pt.vocab_size + 1]
+
+        # 输入语句是葡萄牙语，增加开始和结束标记
+        inp_sentence = start_token + tokenizer_pt.encode(inp_sentence) + end_token
+        en
