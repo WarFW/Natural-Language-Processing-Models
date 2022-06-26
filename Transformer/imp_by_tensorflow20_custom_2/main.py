@@ -241,4 +241,8 @@ class ModelHelper:
 
         # 因为目标是英语，输入 transformer 的第一个词应该是
         # 英语的开始标记。
-        decoder_input = [tokenizer_en.vocab
+        decoder_input = [tokenizer_en.vocab_size]
+        output = tf.expand_dims(decoder_input, 0)
+
+        for i in range(MAX_LENGTH):
+            enc_padding_mask, combined_mask, dec_padding_ma
