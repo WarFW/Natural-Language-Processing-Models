@@ -245,4 +245,8 @@ class ModelHelper:
         output = tf.expand_dims(decoder_input, 0)
 
         for i in range(MAX_LENGTH):
-            enc_padding_mask, combined_mask, dec_padding_ma
+            enc_padding_mask, combined_mask, dec_padding_mask = create_masks(
+                encoder_input, output)
+
+            # predictions.shape == (batch_size, seq_len, vocab_size)
+         
