@@ -249,4 +249,6 @@ class ModelHelper:
                 encoder_input, output)
 
             # predictions.shape == (batch_size, seq_len, vocab_size)
-         
+            predictions, attention_weights = self.transformer(encoder_input,
+                                                         output,
+                         
