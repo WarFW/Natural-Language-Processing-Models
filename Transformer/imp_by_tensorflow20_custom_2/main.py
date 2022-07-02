@@ -251,4 +251,6 @@ class ModelHelper:
             # predictions.shape == (batch_size, seq_len, vocab_size)
             predictions, attention_weights = self.transformer(encoder_input,
                                                          output,
-                         
+                                                         False,
+                                                         enc_padding_mask,
+                                                         c
