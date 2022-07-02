@@ -253,4 +253,8 @@ class ModelHelper:
                                                          output,
                                                          False,
                                                          enc_padding_mask,
-                                                         c
+                                                         combined_mask,
+                                                         dec_padding_mask)
+
+            # 从 seq_len 维度选择最后一个词
+            predictions = predictions[:,
