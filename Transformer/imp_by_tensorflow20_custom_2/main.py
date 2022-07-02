@@ -257,4 +257,7 @@ class ModelHelper:
                                                          dec_padding_mask)
 
             # 从 seq_len 维度选择最后一个词
-            predictions = predictions[:,
+            predictions = predictions[:, -1:, :]  # (batch_size, 1, vocab_size)
+            predicted_id = tf.cast(tf.argmax(predictions, axis=-1), tf.int32)
+            # 如果 predicted_id 等于结束标记，就返回结果
+            if 
