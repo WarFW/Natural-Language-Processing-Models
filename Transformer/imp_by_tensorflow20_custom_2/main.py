@@ -260,4 +260,7 @@ class ModelHelper:
             predictions = predictions[:, -1:, :]  # (batch_size, 1, vocab_size)
             predicted_id = tf.cast(tf.argmax(predictions, axis=-1), tf.int32)
             # 如果 predicted_id 等于结束标记，就返回结果
-            if 
+            if predicted_id == tokenizer_en.vocab_size + 1:
+                return tf.squeeze(output, axis=0), attention_weights
+            # 连接 predicted_id 与输出，作为解码器的输入传递到解码器。
+ 
