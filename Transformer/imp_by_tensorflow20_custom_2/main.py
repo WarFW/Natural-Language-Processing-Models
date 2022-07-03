@@ -268,4 +268,7 @@ class ModelHelper:
 
 
     def evaluation(self, x, y):
-        self.
+        self.test_accuracy.reset_states()
+        self.test_loss.reset_states()
+        self.test_step(x, y, training=False)
+        template = 'Evaluation || Loss: {}, Accuracy: {}
