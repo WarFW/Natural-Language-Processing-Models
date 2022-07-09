@@ -271,4 +271,9 @@ class ModelHelper:
         self.test_accuracy.reset_states()
         self.test_loss.reset_states()
         self.test_step(x, y, training=False)
-        template = 'Evaluation || Loss: {}, Accuracy: {}
+        template = 'Evaluation || Loss: {}, Accuracy: {}'
+        print(template.format(self.test_loss.result(), self.test_accuracy.result() * 100))
+
+
+def translate(model_helper, sentence):
+    result, _ = model_help
