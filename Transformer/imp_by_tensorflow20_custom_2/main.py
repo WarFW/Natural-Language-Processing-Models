@@ -279,4 +279,10 @@ def translate(model_helper, sentence):
     result, _ = model_helper.predict(sentence)
     print(result)
     predicted_sentence = tokenizer_en.decode([i for i in result if i < tokenizer_en.vocab_size])
-    print('Input: {}'.format(
+    print('Input: {}'.format(sentence))
+    print('Predicted translation: {}'.format(predicted_sentence))
+
+model_helper = ModelHelper()
+
+
+translate(model_helper, "este é um problema que temos que resolver
