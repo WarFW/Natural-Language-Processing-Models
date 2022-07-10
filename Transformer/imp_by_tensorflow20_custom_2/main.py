@@ -285,4 +285,9 @@ def translate(model_helper, sentence):
 model_helper = ModelHelper()
 
 
-translate(model_helper, "este é um problema que temos que resolver
+translate(model_helper, "este é um problema que temos que resolver.")
+print ("Real translation: this is a problem we have to solve .")
+
+
+translate(model_helper, "os meus vizinhos ouviram sobre esta ideia.")
+print ("Real translat
