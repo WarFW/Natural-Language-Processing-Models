@@ -276,4 +276,7 @@ class ModelHelper:
 
 
 def translate(model_helper, sentence):
-    result, _ = model_help
+    result, _ = model_helper.predict(sentence)
+    print(result)
+    predicted_sentence = tokenizer_en.decode([i for i in result if i < tokenizer_en.vocab_size])
+    print('Input: {}'.format(
