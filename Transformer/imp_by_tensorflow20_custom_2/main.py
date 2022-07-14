@@ -290,4 +290,7 @@ print ("Real translation: this is a problem we have to solve .")
 
 
 translate(model_helper, "os meus vizinhos ouviram sobre esta ideia.")
-print ("Real translat
+print ("Real translation: and my neighboring homes heard about this idea .")
+
+
+translate(model_helper, "este é o primeiro livro que eu fiz.
