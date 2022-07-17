@@ -300,3 +300,13 @@ if __name__=='__main__':
                                    dec_padding_mask=None)
     print(fn_out.shape)
 
+
+
+
+
+
+
+
+
+
+
