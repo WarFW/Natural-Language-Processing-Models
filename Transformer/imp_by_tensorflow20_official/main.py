@@ -12,4 +12,6 @@ import matplotlib.pyplot as plt
 from imp_by_tensorflow20_official.modeling import Transformer
 import os
 
-examples, me
+examples, metadata = tfds.load('ted_hrlr_translate/pt_to_en', with_info=True,
+                               as_supervised=True)
+train_examples, val_exampl
