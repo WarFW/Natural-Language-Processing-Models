@@ -25,4 +25,9 @@ tokenizer_pt = tfds.features.text.SubwordTextEncoder.build_from_corpus(
 
 def encode(lang1, lang2):
     lang1 = [tokenizer_pt.vocab_size] + tokenizer_pt.encode(
-        lang1.numpy()) + [tokenizer_pt.vocab_size + 
+        lang1.numpy()) + [tokenizer_pt.vocab_size + 1]
+
+    lang2 = [tokenizer_en.vocab_size] + tokenizer_en.encode(
+        lang2.numpy()) + [tokenizer_en.vocab_size + 1]
+
+    return lang1, l
