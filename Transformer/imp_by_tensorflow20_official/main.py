@@ -66,3 +66,10 @@ train_dataset = (train_preprocessed
 val_dataset = (val_preprocessed
                .padded_batch(BATCH_SIZE,  padded_shapes=([None], [None])))
 
+
+
+def checkout_dir(dir_path, do_delete=False):
+    import shutil
+    if do_delete and os.path.exists(dir_path):
+        shutil.rmtree(dir_path)
+    if not os.pa
