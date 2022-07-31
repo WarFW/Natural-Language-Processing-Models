@@ -47,4 +47,10 @@ def tf_encode(pt, en):
 
 train_preprocessed = (
     train_examples
-    .m
+    .map(tf_encode)
+    .filter(filter_max_length)
+    # cache the dataset to memory to get a speedup while reading from it.
+    .cache()
+    .shuffle(BUFFER_SIZE))
+
+val_
