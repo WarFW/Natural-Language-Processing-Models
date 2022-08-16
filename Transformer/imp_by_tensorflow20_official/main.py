@@ -98,4 +98,9 @@ def create_padding_mask(seq):
     # 注意力对数（logits）。
     return seq[:, tf.newaxis, tf.newaxis, :]  # (batch_size, 1, 1, seq_len)
 
-def cre
+def create_look_ahead_mask(size):
+    '''
+    eg.
+    x = tf.random.uniform((1, 3))
+    temp = create_look_ahead_mask(x.shape[1])
+    temp:<tf.Tensor: shape=(3, 3), dtype=float32, nu
