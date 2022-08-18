@@ -108,4 +108,11 @@ def create_look_ahead_mask(size):
                    [0., 0., 1.],
                    [0., 0., 0.]], dtype=float32)>
     '''
-    mask = 1 - tf.linalg.band_part(tf.ones((s
+    mask = 1 - tf.linalg.band_part(tf.ones((size, size)), -1, 0)
+    return mask  # (seq_len, seq_len)
+
+def create_masks(inp, tar):
+    # 编码器填充遮挡
+    enc_padding_mask = create_padding_mask(inp)
+    # 在解码器的第二个注意力模块使用。
+  
