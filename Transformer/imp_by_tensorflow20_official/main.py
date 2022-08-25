@@ -122,4 +122,9 @@ def create_masks(inp, tar):
     look_ahead_mask = create_look_ahead_mask(tf.shape(tar)[1]) #(tar_seq_len, tar_seq_len)
     dec_target_padding_mask = create_padding_mask(tar) # (batch_size, 1, 1, tar_seq_len)
     # 广播机制，look_ahead_mask==>(batch_size, 1, tar_seq_len, tar_seq_len)
-    # dec_target_padding_mask ==> (batch_size, 1, tar_seq_len, ta
+    # dec_target_padding_mask ==> (batch_size, 1, tar_seq_len, tar_seq_len)
+    combined_mask = tf.maximum(dec_target_padding_mask, look_ahead_mask)
+    return enc_padding_mask, combined_mask, dec_padding_mask
+
+
+# ========
