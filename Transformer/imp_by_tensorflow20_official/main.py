@@ -120,4 +120,6 @@ def create_masks(inp, tar):
     # 在解码器的第一个注意力模块使用。
     # 用于填充（pad）和遮挡（mask）解码器获取到的输入的后续标记（future tokens）。
     look_ahead_mask = create_look_ahead_mask(tf.shape(tar)[1]) #(tar_seq_len, tar_seq_len)
-    dec_target_padding_mask = create_padding_mask(tar) # (batch_size, 1, 1, tar_seq_le
+    dec_target_padding_mask = create_padding_mask(tar) # (batch_size, 1, 1, tar_seq_len)
+    # 广播机制，look_ahead_mask==>(batch_size, 1, tar_seq_len, tar_seq_len)
+    # dec_target_padding_mask ==> (batch_size, 1, tar_seq_len, ta
