@@ -145,4 +145,8 @@ transformer  = Transformer(num_layers,
                     d_model,
                     num_heads,
                     dff,
-          
+                    input_vocab_size,
+                    target_vocab_size,
+                    input_vocab_size,
+                    target_vocab_size,
+                    
