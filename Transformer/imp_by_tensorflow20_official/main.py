@@ -176,4 +176,7 @@ train_accuracy = tf.keras.metrics.SparseCategoricalAccuracy(name='train_accuracy
 checkpoint_path = "./checkpoints/train"
 # checkout_dir(dir_path=checkpoint_path, do_delete=True)
 ckpt = tf.train.Checkpoint(transformer=transformer,
-   
+                           optimizer=optimizer)
+ckpt_manager = tf.train.CheckpointManager(ckpt, checkpoint_path, max_to_keep=5)
+# 如果检查点存在，则恢复最新的检查点。
+if ckpt_manag
