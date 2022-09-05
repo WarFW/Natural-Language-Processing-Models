@@ -179,4 +179,11 @@ ckpt = tf.train.Checkpoint(transformer=transformer,
                            optimizer=optimizer)
 ckpt_manager = tf.train.CheckpointManager(ckpt, checkpoint_path, max_to_keep=5)
 # 如果检查点存在，则恢复最新的检查点。
-if ckpt_manag
+if ckpt_manager.latest_checkpoint:
+    ckpt.restore(ckpt_manager.latest_checkpoint)
+    print ('Latest checkpoint restored!!')
+
+
+
+EPOCHS = 20
+# 该 @tf.fun
