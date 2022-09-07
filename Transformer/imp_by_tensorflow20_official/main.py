@@ -197,4 +197,11 @@ train_step_signature = [
 ]
 
 
-@tf.function(input_signature=train_step_signature
+@tf.function(input_signature=train_step_signature)
+def train_step(inp, tar):
+    tar_inp = tar[:, :-1]
+    tar_real = tar[:, 1:]
+
+    enc_padding_mask, combined_mask, dec_padding_mask = create_masks(inp, tar_inp)
+
+    wi
