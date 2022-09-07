@@ -192,4 +192,9 @@ EPOCHS = 20
 # 更多的通用形状。
 
 train_step_signature = [
-    
+    tf.TensorSpec(shape=(None, None), dtype=tf.int64),
+    tf.TensorSpec(shape=(None, None), dtype=tf.int64),
+]
+
+
+@tf.function(input_signature=train_step_signature
