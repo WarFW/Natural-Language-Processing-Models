@@ -208,4 +208,6 @@ def train_step(inp, tar):
         predictions, _ = transformer(inp, tar_inp,
                                      True,
                                      enc_padding_mask,
-   
+                                     combined_mask,
+                                     dec_padding_mask)
+        loss = loss_function(tar_real, 
