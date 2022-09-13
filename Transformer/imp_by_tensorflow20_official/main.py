@@ -213,4 +213,13 @@ def train_step(inp, tar):
         loss = loss_function(tar_real, predictions)
 
     gradients = tape.gradient(loss, transformer.trainable_variables)
-    optimizer.apply_gradients(zip(gradients, transformer.trainable_variables)
+    optimizer.apply_gradients(zip(gradients, transformer.trainable_variables))
+
+    train_loss(loss)
+    train_accuracy(tar_real, predictions)
+
+
+for epoch in range(EPOCHS):
+    start = time.time()
+
+    train_loss.reset_states()
