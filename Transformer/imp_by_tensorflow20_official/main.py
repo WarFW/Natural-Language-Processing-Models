@@ -223,3 +223,10 @@ for epoch in range(EPOCHS):
     start = time.time()
 
     train_loss.reset_states()
+    train_accuracy.reset_states()
+
+    # inp -> portuguese, tar -> english
+    for (batch, (inp, tar)) in enumerate(train_dataset):
+        train_step(inp, tar)
+
+   
