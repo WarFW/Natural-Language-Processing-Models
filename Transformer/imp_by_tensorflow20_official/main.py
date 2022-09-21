@@ -242,4 +242,12 @@ for epoch in range(EPOCHS):
                                                         train_loss.result(),
                                                         train_accuracy.result()))
 
-    print('Time taken for 1 e
+    print('Time taken for 1 epoch: {} secs\n'.format(time.time() - start))
+
+
+from sklearn.metrics.pairwise import cosine_similarity
+
+
+# 评估
+def evaluate(inp_sentence):
+    start_token 
