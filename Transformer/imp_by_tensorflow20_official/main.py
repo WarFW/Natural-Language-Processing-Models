@@ -254,4 +254,8 @@ def evaluate(inp_sentence):
     end_token = [tokenizer_pt.vocab_size + 1]
 
     # 输入语句是葡萄牙语，增加开始和结束标记
-    inp_sentence = start_token + tokenizer_pt.enc
+    inp_sentence = start_token + tokenizer_pt.encode(inp_sentence) + end_token
+    encoder_input = tf.expand_dims(inp_sentence, 0)
+
+    # 因为目标是英语，输入 transformer 的第一个词应该是
+    
