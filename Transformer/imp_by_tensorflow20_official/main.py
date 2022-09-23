@@ -250,4 +250,8 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 # 评估
 def evaluate(inp_sentence):
-    start_token 
+    start_token = [tokenizer_pt.vocab_size]
+    end_token = [tokenizer_pt.vocab_size + 1]
+
+    # 输入语句是葡萄牙语，增加开始和结束标记
+    inp_sentence = start_token + tokenizer_pt.enc
