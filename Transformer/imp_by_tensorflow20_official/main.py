@@ -284,3 +284,9 @@ def evaluate(inp_sentence):
             return tf.squeeze(output, axis=0), attention_weights
 
         # 连接 predicted_id 与输出，作为解码器的输入传递到解码器。
+        output = tf.concat([output, predicted_id], axis=-1)
+
+    return tf.squeeze(output, axis=0), attention_weights
+
+
+def plot_attention_weights(a
