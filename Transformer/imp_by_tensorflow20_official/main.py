@@ -289,4 +289,9 @@ def evaluate(inp_sentence):
     return tf.squeeze(output, axis=0), attention_weights
 
 
-def plot_attention_weights(a
+def plot_attention_weights(attention, sentence, result, layer):
+    fig = plt.figure(figsize=(16, 8))
+
+    sentence = tokenizer_pt.encode(sentence)
+
+    attention = tf.squeeze(attentio
