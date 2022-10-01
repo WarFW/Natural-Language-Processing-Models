@@ -294,4 +294,10 @@ def plot_attention_weights(attention, sentence, result, layer):
 
     sentence = tokenizer_pt.encode(sentence)
 
-    attention = tf.squeeze(attentio
+    attention = tf.squeeze(attention[layer], axis=0)
+
+    for head in range(attention.shape[0]):
+        ax = fig.add_subplot(2, 4, head + 1)
+
+        # 画出注意力权重
+        ax.matshow(attention[head][:-1, :], cm
