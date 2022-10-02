@@ -307,4 +307,8 @@ def plot_attention_weights(attention, sentence, result, layer):
         ax.set_xticks(range(len(sentence) + 2))
         ax.set_yticks(range(len(result)))
 
-        ax.set_
+        ax.set_ylim(len(result) - 1.5, -0.5)
+
+        ax.set_xticklabels(
+            ['<start>'] + [tokenizer_pt.decode([i]) for i in sentence] + ['<end>'],
+            fontdict=fontdict, rota
