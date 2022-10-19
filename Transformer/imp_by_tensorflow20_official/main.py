@@ -311,4 +311,8 @@ def plot_attention_weights(attention, sentence, result, layer):
 
         ax.set_xticklabels(
             ['<start>'] + [tokenizer_pt.decode([i]) for i in sentence] + ['<end>'],
-            fontdict=fontdict, rota
+            fontdict=fontdict, rotation=90)
+
+        ax.set_yticklabels([tokenizer_en.decode([i]) for i in result
+                            if i < tokenizer_en.vocab_size],
+   
