@@ -327,4 +327,10 @@ def translate(sentence, plot=''):
     result, attention_weights = evaluate(sentence)
 
     predicted_sentence = tokenizer_en.decode([i for i in result
-                                       
+                                              if i < tokenizer_en.vocab_size])
+
+    print('Input: {}'.format(sentence))
+    print('Predicted translation: {}'.format(predicted_sentence))
+
+    if plot:
+        plot_attention
