@@ -333,4 +333,7 @@ def translate(sentence, plot=''):
     print('Predicted translation: {}'.format(predicted_sentence))
 
     if plot:
-        plot_attention
+        plot_attention_weights(attention_weights, sentence, result, plot)
+
+translate("este é um problema que temos que resolver.")
+print ("Real translation: this is a problem 
