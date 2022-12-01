@@ -14,4 +14,10 @@ def get_angles(pos, i, d_model):
     :param d_model:词向量维度大小
     :return:
     '''
-    angle_rates = 1 / np.power(10000, (2 * (
+    angle_rates = 1 / np.power(10000, (2 * (i//2)) / np.float32(d_model))
+    return pos * angle_rates
+
+def positional_encoding(position, d_model):
+    '''
+    :param position: 最大的position
+    :param d_model
