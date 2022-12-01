@@ -20,4 +20,8 @@ def get_angles(pos, i, d_model):
 def positional_encoding(position, d_model):
     '''
     :param position: 最大的position
-    :param d_model
+    :param d_model: 词向量维度大小
+    :return: [1, 最大position个数，词向量维度大小] 最后和embedding矩阵相加
+    '''
+    angle_rads = get_angles(np.arange(position)[:, np.newaxis],
+                          np.aran
