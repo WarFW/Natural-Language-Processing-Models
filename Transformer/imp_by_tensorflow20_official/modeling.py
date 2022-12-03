@@ -24,4 +24,7 @@ def positional_encoding(position, d_model):
     :return: [1, 最大position个数，词向量维度大小] 最后和embedding矩阵相加
     '''
     angle_rads = get_angles(np.arange(position)[:, np.newaxis],
-                          np.aran
+                          np.arange(d_model)[np.newaxis, :],
+                          d_model)
+    # apply sin to even indices in the array; 2i
+    angle_rads[:, 0::2] = np.sin(angle_
