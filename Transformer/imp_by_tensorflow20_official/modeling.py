@@ -50,4 +50,8 @@ def scaled_dot_product_attention(q, k, v, mask=None):
     k: 主键的形状 == (..., seq_len, d)
     v: 数值的形状 == (..., seq_len, d_v)
     mask: Float 张量，其形状能转换成
-       
+          (..., seq_len_q, seq_len)。默认为None。
+    返回值:
+    输出，注意力权重
+    '''
+    # (batch_size, num_heads, seq_len_q, d ) dot (batch_size, num_heads, d, seq_ken_
