@@ -30,4 +30,9 @@ def positional_encoding(position, d_model):
     angle_rads[:, 0::2] = np.sin(angle_rads[:, 0::2])
     # apply cos to odd indices in the array; 2i+1
     angle_rads[:, 1::2] = np.cos(angle_rads[:, 1::2])
-    pos_encoding = angle
+    pos_encoding = angle_rads[np.newaxis, ...]
+    return tf.cast(pos_encoding, dtype=tf.float32)
+
+def point_wise_feed_forward_network(d_model, dff):
+  return tf.keras.Sequential([
+    
