@@ -44,4 +44,10 @@ def scaled_dot_product_attention(q, k, v, mask=None):
     '''计算attention
     q,k,v的第一维度必须相同
     q,k的最后一维必须相同
-    k,v在倒数第二的维度需要相同, seq_len_k = seq_l
+    k,v在倒数第二的维度需要相同, seq_len_k = seq_len_q=seq_len。
+    参数:
+    q: 请求的形状 == (..., seq_len_q, d)
+    k: 主键的形状 == (..., seq_len, d)
+    v: 数值的形状 == (..., seq_len, d_v)
+    mask: Float 张量，其形状能转换成
+       
