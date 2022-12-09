@@ -37,4 +37,11 @@ def point_wise_feed_forward_network(d_model, dff):
   return tf.keras.Sequential([
       tf.keras.layers.Dense(dff, activation='relu'),  # (batch_size, seq_len, dff)
       tf.keras.layers.Dense(d_model)  # (batch_size, seq_len, d_model)
- 
+  ])
+
+
+def scaled_dot_product_attention(q, k, v, mask=None):
+    '''计算attention
+    q,k,v的第一维度必须相同
+    q,k的最后一维必须相同
+    k,v在倒数第二的维度需要相同, seq_len_k = seq_l
