@@ -54,4 +54,8 @@ def scaled_dot_product_attention(q, k, v, mask=None):
     返回值:
     输出，注意力权重
     '''
-    # (batch_size, num_heads, seq_len_q, d ) dot (batch_size, num_heads, d, seq_ken_
+    # (batch_size, num_heads, seq_len_q, d ) dot (batch_size, num_heads, d, seq_ken_k) = (batch_size, num_heads,, seq_len_q, seq_len)
+    matmul_qk = tf.matmul(q, k, transpose_b=True)
+
+    # 缩放matmul_qk
+    dk = tf.cast(tf.shape(k)[-1], dtype=tf.float32
