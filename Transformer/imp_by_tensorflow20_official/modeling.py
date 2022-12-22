@@ -63,4 +63,8 @@ def scaled_dot_product_attention(q, k, v, mask=None):
 
     # 将 mask 加入到缩放的张量上。
     if mask is not None:
-        # (batch_size, num_heads,, seq_len_q, seq_len) + (batch_size
+        # (batch_size, num_heads,, seq_len_q, seq_len) + (batch_size, 1,, 1, seq_len)
+        scaled_attention_logits += (mask * -1e9)
+
+    # softmax归一化权重 (batch_size, num_heads, seq_len)
+    attention_weights = tf.nn
