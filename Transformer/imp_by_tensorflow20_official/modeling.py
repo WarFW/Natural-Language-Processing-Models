@@ -58,4 +58,9 @@ def scaled_dot_product_attention(q, k, v, mask=None):
     matmul_qk = tf.matmul(q, k, transpose_b=True)
 
     # 缩放matmul_qk
-    dk = tf.cast(tf.shape(k)[-1], dtype=tf.float32
+    dk = tf.cast(tf.shape(k)[-1], dtype=tf.float32)
+    scaled_attention_logits = matmul_qk/tf.math.sqrt(dk)
+
+    # 将 mask 加入到缩放的张量上。
+    if mask is not None:
+        # (batch_size, num_heads,, seq_len_q, seq_len) + (batch_size
