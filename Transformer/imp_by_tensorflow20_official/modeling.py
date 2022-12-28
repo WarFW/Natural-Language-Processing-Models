@@ -70,4 +70,8 @@ def scaled_dot_product_attention(q, k, v, mask=None):
     attention_weights = tf.nn.softmax(scaled_attention_logits, axis=-1)
 
     # seq_len_q个位置分别对应v上的加权求和
-    # (batch_size, num_heads, seq_len) dot (batch_size, num_heads, d_v
+    # (batch_size, num_heads, seq_len) dot (batch_size, num_heads, d_v) = (batch_size, num_heads, seq_len_q, d_v)
+    output = tf.matmul(attention_weights, v)
+    return output, attention_weights
+
+class Multi
