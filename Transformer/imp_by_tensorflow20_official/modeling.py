@@ -74,4 +74,8 @@ def scaled_dot_product_attention(q, k, v, mask=None):
     output = tf.matmul(attention_weights, v)
     return output, attention_weights
 
-class Multi
+class MultiHeadAttention(tf.keras.layers.Layer):
+
+    def __init__(self, d_model, num_heads):
+        super(MultiHeadAttention, self).__init__()
+        assert (d_model > num_
