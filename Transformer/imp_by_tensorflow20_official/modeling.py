@@ -78,4 +78,9 @@ class MultiHeadAttention(tf.keras.layers.Layer):
 
     def __init__(self, d_model, num_heads):
         super(MultiHeadAttention, self).__init__()
-        assert (d_model > num_
+        assert (d_model > num_heads) and (d_model % num_heads == 0)
+        self.d_model = d_model
+        self.num_heads = num_heads
+        self.depth = d_model // num_heads
+
+    
