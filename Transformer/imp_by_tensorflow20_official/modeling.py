@@ -83,4 +83,7 @@ class MultiHeadAttention(tf.keras.layers.Layer):
         self.num_heads = num_heads
         self.depth = d_model // num_heads
 
-    
+        self.qw = tf.keras.layers.Dense(d_model)
+        self.kw = tf.keras.layers.Dense(d_model)
+        self.vw = tf.keras.layers.Dense(d_model)
+        self.dense = tf.keras.la
