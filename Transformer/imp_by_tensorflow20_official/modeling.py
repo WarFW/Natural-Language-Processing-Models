@@ -86,4 +86,7 @@ class MultiHeadAttention(tf.keras.layers.Layer):
         self.qw = tf.keras.layers.Dense(d_model)
         self.kw = tf.keras.layers.Dense(d_model)
         self.vw = tf.keras.layers.Dense(d_model)
-        self.dense = tf.keras.la
+        self.dense = tf.keras.layers.Dense(d_model)
+
+    def split_heads(self, x, batch_size):
+        x = tf.reshape(x, (batch_size, -1, self.num_heads, self.depth)) # (batch_size, seq_len, nu
