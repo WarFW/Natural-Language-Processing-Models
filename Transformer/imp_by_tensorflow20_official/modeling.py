@@ -95,4 +95,7 @@ class MultiHeadAttention(tf.keras.layers.Layer):
 
     def call(self, v, k, q, mask=None):
         # v = inputs
-   
+        batch_size = tf.shape(q)[0]
+
+        q = self.qw(q)  # (batch_size, seq_len_q, d_model)
+        k = self.kw(k)  # (batch_size, seq_len, d_model)
