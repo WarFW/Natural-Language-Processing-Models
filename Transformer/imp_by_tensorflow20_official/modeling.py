@@ -107,4 +107,6 @@ class MultiHeadAttention(tf.keras.layers.Layer):
 
         # scaled_attention, (batch_size, num_heads, seq_len_q, depth_v)
         # attention_weights, (batch_size, num_heads, seq_len_q, seq_len)
-       
+        scaled_attention, attention_weights = scaled_dot_product_attention(q, k, v, mask)
+
+        scaled_attention = tf.transpose(scaled_atte
