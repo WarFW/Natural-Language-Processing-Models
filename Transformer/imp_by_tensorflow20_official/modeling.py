@@ -105,4 +105,6 @@ class MultiHeadAttention(tf.keras.layers.Layer):
         k = self.split_heads(k, batch_size)  # (batch_size, num_heads, seq_len, depth)
         v = self.split_heads(v, batch_size)  # (batch_size, num_heads, seq_len, depth_v)
 
-      
+        # scaled_attention, (batch_size, num_heads, seq_len_q, depth_v)
+        # attention_weights, (batch_size, num_heads, seq_len_q, seq_len)
+       
