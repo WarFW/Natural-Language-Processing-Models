@@ -114,3 +114,7 @@ class MultiHeadAttention(tf.keras.layers.Layer):
 
         output = self.dense(concat_attention)  # (batch_size, seq_len_q, d_model)
         return output, attention_weights
+
+class EncoderLayer(tf.keras.layers.Layer):
+    '''Encoder block
+    包括两个子层：1.多头注意力（有填充遮挡）2.点式前馈网络（Point wise feed forward n
