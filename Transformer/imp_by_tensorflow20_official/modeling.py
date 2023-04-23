@@ -117,4 +117,8 @@ class MultiHeadAttention(tf.keras.layers.Layer):
 
 class EncoderLayer(tf.keras.layers.Layer):
     '''Encoder block
-    包括两个子层：1.多头注意力（有填充遮挡）2.点式前馈网络（Point wise feed forward n
+    包括两个子层：1.多头注意力（有填充遮挡）2.点式前馈网络（Point wise feed forward networks）。
+    out1 = BatchNormalization( x +（MultiHeadAttention(x, x, x)=>dropout）)
+    out2 = BatchNormalization( out1 + (ffn(out1) => dropout) )
+    '''
+    def __
