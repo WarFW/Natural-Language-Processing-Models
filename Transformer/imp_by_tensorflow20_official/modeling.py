@@ -121,4 +121,6 @@ class EncoderLayer(tf.keras.layers.Layer):
     out1 = BatchNormalization( x +（MultiHeadAttention(x, x, x)=>dropout）)
     out2 = BatchNormalization( out1 + (ffn(out1) => dropout) )
     '''
-    def __
+    def __init__(self, d_model, num_heads, dff, rate=0.1):
+        super(EncoderLayer, self).__init__()
+        self.mha = MultiHeadAttention(d_model=d_model, n
