@@ -128,4 +128,7 @@ class EncoderLayer(tf.keras.layers.Layer):
         self.layer_norm1 = tf.keras.layers.BatchNormalization(epsilon=1e-6)
         self.layer_norm2 = tf.keras.layers.BatchNormalization(epsilon=1e-6)
         self.dropout1 = tf.keras.layers.Dropout(rate)
-        self.dropout
+        self.dropout2 = tf.keras.layers.Dropout(rate)
+
+    def call(self, x, training, mask):
+        attn_output, _ = self.mha(x, x, x, mask) # (batch_size, input_seq_
