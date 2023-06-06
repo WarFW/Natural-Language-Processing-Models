@@ -137,4 +137,10 @@ class EncoderLayer(tf.keras.layers.Layer):
 
         ffn_output = self.ffn(out1) # (batch_size, input_seq_len, d_model)
         ffn_output = self.dropout2(ffn_output, training=training)
-        out2 = self.layer_norm2(out1+f
+        out2 = self.layer_norm2(out1+ffn_output) # (batch_size, input_seq_len, d_model)
+        return out2
+
+class DecoderLayer(tf.keras.layers.Layer):
+    ''' Decoder block
+    需要的子层：
+    1.遮挡的多头注意力（前
