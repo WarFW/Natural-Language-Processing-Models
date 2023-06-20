@@ -147,3 +147,7 @@ class DecoderLayer(tf.keras.layers.Layer):
     2.多头注意力（用填充遮挡）。V（数值）和 K（主键）接收编码器输出作为输入。Q（请求）接收遮挡的多头注意力子层的输出。
     3. 点式前馈网络
     out1 = BatchNormalization( x +（MultiHeadAttention(x, x, x)=>dropout）)
+    out2 = BatchNormalization( out1 +（MultiHeadAttention(enc_output, enc_output out1)=>dropout）)
+    out3 = BatchNormalization( out2 + (ffn => dropout) )
+    '''
+  
