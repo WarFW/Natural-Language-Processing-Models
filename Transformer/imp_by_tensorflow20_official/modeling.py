@@ -153,4 +153,9 @@ class DecoderLayer(tf.keras.layers.Layer):
     def __init__(self, d_model, num_heads, dff, rate=0.1):
         super(DecoderLayer, self).__init__()
 
-        self.mha1 = MultiHeadAttention(d_mo
+        self.mha1 = MultiHeadAttention(d_model, num_heads)
+        self.mha2 = MultiHeadAttention(d_model, num_heads)
+
+        self.ffn = point_wise_feed_forward_network(d_model, dff)
+
+        self.l
