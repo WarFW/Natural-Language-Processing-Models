@@ -150,4 +150,7 @@ class DecoderLayer(tf.keras.layers.Layer):
     out2 = BatchNormalization( out1 +（MultiHeadAttention(enc_output, enc_output out1)=>dropout）)
     out3 = BatchNormalization( out2 + (ffn => dropout) )
     '''
-  
+    def __init__(self, d_model, num_heads, dff, rate=0.1):
+        super(DecoderLayer, self).__init__()
+
+        self.mha1 = MultiHeadAttention(d_mo
