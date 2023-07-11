@@ -160,4 +160,7 @@ class DecoderLayer(tf.keras.layers.Layer):
 
         self.layer_norm1 = tf.keras.layers.LayerNormalization(epsilon=1e-6)
         self.layer_norm2 = tf.keras.layers.LayerNormalization(epsilon=1e-6)
-        self.lay
+        self.layer_norm3 = tf.keras.layers.LayerNormalization(epsilon=1e-6)
+
+        self.dropout1 = tf.keras.layers.Dropout(rate)
+        self.dropout2 = tf.keras.layers.Dropout(rate
