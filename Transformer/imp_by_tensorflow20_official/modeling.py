@@ -158,4 +158,6 @@ class DecoderLayer(tf.keras.layers.Layer):
 
         self.ffn = point_wise_feed_forward_network(d_model, dff)
 
-        self.l
+        self.layer_norm1 = tf.keras.layers.LayerNormalization(epsilon=1e-6)
+        self.layer_norm2 = tf.keras.layers.LayerNormalization(epsilon=1e-6)
+        self.lay
