@@ -163,4 +163,8 @@ class DecoderLayer(tf.keras.layers.Layer):
         self.layer_norm3 = tf.keras.layers.LayerNormalization(epsilon=1e-6)
 
         self.dropout1 = tf.keras.layers.Dropout(rate)
-        self.dropout2 = tf.keras.layers.Dropout(rate
+        self.dropout2 = tf.keras.layers.Dropout(rate)
+        self.dropout3 = tf.keras.layers.Dropout(rate)
+
+    def call(self, x, enc_output, training, look_ahead_mask, padding_mask):
+        # x.shape == (batc
