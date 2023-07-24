@@ -181,4 +181,10 @@ class DecoderLayer(tf.keras.layers.Layer):
         ffn_output = self.dropout3(ffn_output, training=training)
         out3 = self.layer_norm3(out2+ffn_output)  # (batch_size, target_seq_len, d_model)
 
-        return
+        return out3, attn_weights_block1, attn_weights_block2
+
+class Encoder(tf.keras.layers.Layer):
+    '''
+    输入嵌入（Input Embedding）
+    位置编码（Positional Encoding）
+    N 
