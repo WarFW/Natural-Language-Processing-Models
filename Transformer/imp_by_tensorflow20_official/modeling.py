@@ -190,4 +190,8 @@ class Encoder(tf.keras.layers.Layer):
     N 个编码器层（encoder layers）
     输入经过嵌入（embedding）后，该嵌入与位置编码相加。该加法结果的输出是编码器层的输入。编码器的输出是解码器的输入。
     '''
-    def __init__(self, num_layers, d_model, num_heads, dff, input_vocab_
+    def __init__(self, num_layers, d_model, num_heads, dff, input_vocab_size, maximum_position_encoding, rate=0.1):
+        super(Encoder, self).__init__()
+        self.d_model = d_model
+        self.num_layers = num_layers
+        self.embe
