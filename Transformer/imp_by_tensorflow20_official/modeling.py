@@ -194,4 +194,7 @@ class Encoder(tf.keras.layers.Layer):
         super(Encoder, self).__init__()
         self.d_model = d_model
         self.num_layers = num_layers
-        self.embe
+        self.embedding = tf.keras.layers.Embedding(input_vocab_size, d_model)
+        self.pos_encoding = positional_encoding(maximum_position_encoding, d_model)
+
+        self.
