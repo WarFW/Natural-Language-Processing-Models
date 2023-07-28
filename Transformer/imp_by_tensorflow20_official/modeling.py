@@ -204,3 +204,9 @@ class Encoder(tf.keras.layers.Layer):
         # x.shape == (batch_size, seq_len)
         seq_len = tf.shape(x)[1]
         x = self.embedding(x) # (batch_size, input_seq_len, d_model)
+        x *= tf.math.sqrt(tf.cast(self.d_model, dtype=tf.float32))
+        x += self.pos_encoding[:, :seq_len, :]
+
+        x = self.dropout(x, training=training)
+
+        
