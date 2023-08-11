@@ -213,4 +213,9 @@ class Encoder(tf.keras.layers.Layer):
             x = self.enc_layer[i](x, training, mask)
         return  x #(batch_size, input_seq_len, d_model)
 
-c
+class Decoder(tf.keras.layers.Layer):
+    '''解码器包括：
+    输出嵌入（Output Embedding）
+    位置编码（Positional Encoding）
+    N 个解码器层（decoder layers）
+    目标（target）经过一个
