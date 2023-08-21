@@ -228,4 +228,7 @@ class Decoder(tf.keras.layers.Layer):
         self.embedding = tf.keras.layers.Embedding(target_vocab_size, d_model)
         self.pos_encoding = positional_encoding(maximum_position_encoding, d_model)
         self.dec_layer = [DecoderLayer(d_model, num_heads, dff, rate) for _ in range(num_layers)]
-        self.dropout = tf.keras.layers.Dropout(r
+        self.dropout = tf.keras.layers.Dropout(rate)
+
+    def call(self, x, enc_output, training, look_ahead_mask, padding_mask):
+        # x.shape==(batch_size, target_seq_len
