@@ -220,4 +220,9 @@ class Decoder(tf.keras.layers.Layer):
     N 个解码器层（decoder layers）
     目标（target）经过一个嵌入后，该嵌入和位置编码相加。该加法结果是解码器层的输入。解码器的输出是最后的线性层的输入。
     '''
-    def __init__(self, num_layers, d_model, num_heads, dff, target_vocab_size, maximum_position_enco
+    def __init__(self, num_layers, d_model, num_heads, dff, target_vocab_size, maximum_position_encoding, rate=0.1):
+        super(Decoder, self).__init__()
+        self.d_model = d_model
+        self.num_layers = num_layers
+
+        self.embedding =
