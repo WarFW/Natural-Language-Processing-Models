@@ -231,4 +231,9 @@ class Decoder(tf.keras.layers.Layer):
         self.dropout = tf.keras.layers.Dropout(rate)
 
     def call(self, x, enc_output, training, look_ahead_mask, padding_mask):
-        # x.shape==(batch_size, target_seq_len
+        # x.shape==(batch_size, target_seq_len)
+        # enc_output.shape==(batch_size, input_seq_len, d_model)
+        seq_len = tf.shape(x)[1]
+        attention_weights = {}
+
+        x = self.embedding(x) # (batch_size, ta
