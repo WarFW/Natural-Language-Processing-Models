@@ -239,4 +239,7 @@ class Decoder(tf.keras.layers.Layer):
         x = self.embedding(x) # (batch_size, target_seq_len, d_model)
         x *= tf.math.sqrt(tf.cast(self.d_model, tf.float32))
         x += self.pos_encoding[:, :seq_len, :]
-        x = 
+        x = self.dropout(x, training=training)
+
+        for i in range(self.num_layers):
+            x, block1, block2 = self.dec_layer[i](x, enc_output, training, look_ahead_mask, padd
