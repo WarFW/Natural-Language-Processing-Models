@@ -244,4 +244,9 @@ class Decoder(tf.keras.layers.Layer):
         for i in range(self.num_layers):
             x, block1, block2 = self.dec_layer[i](x, enc_output, training, look_ahead_mask, padding_mask)
             attention_weights['decoder_layer{}_block1'.format(i + 1)] = block1
-            attention_weights['decoder_layer{}_block2'.fo
+            attention_weights['decoder_layer{}_block2'.format(i + 1)] = block2
+        # x.shape==(batch_size, target_seq_len, d_model)
+        return x, attention_weights
+
+
+class Transform
