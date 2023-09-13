@@ -249,4 +249,7 @@ class Decoder(tf.keras.layers.Layer):
         return x, attention_weights
 
 
-class Transform
+class Transformer(tf.keras.Model):
+    def __init__(self, params):
+        super(Transformer, self).__init__()
+        self.encoder = Encoder(params['num_layers']
