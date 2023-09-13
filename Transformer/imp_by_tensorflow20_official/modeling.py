@@ -253,4 +253,5 @@ class Transformer(tf.keras.Model):
     def __init__(self, params):
         super(Transformer, self).__init__()
         self.encoder = Encoder(params['num_layers'],params['d_model'],params['num_heads'],params['dff'],params['input_vocab_size'],params['pe_input'],params['rate'])
-        self.decoder = Decoder(para
+        self.decoder = Decoder(params['num_layers'],params['d_model'],params['num_heads'],params['dff'],params['target_vocab_size'],params['pe_target'],params['rate'])
+        self.final_lay
