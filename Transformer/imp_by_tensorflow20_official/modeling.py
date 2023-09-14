@@ -254,4 +254,6 @@ class Transformer(tf.keras.Model):
         super(Transformer, self).__init__()
         self.encoder = Encoder(params['num_layers'],params['d_model'],params['num_heads'],params['dff'],params['input_vocab_size'],params['pe_input'],params['rate'])
         self.decoder = Decoder(params['num_layers'],params['d_model'],params['num_heads'],params['dff'],params['target_vocab_size'],params['pe_target'],params['rate'])
-        self.final_lay
+        self.final_layer = tf.keras.layers.Dense(params['target_vocab_size'])
+
+    def call(self, inp, tar, training, enc_padding_mask=None, look_ahead_mask=None, dec_padding_
