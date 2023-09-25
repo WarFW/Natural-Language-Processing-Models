@@ -261,4 +261,8 @@ class Transformer(tf.keras.Model):
         enc_output = self.encoder(inp, training, enc_padding_mask)
         # (batch_size, tar_seq_len, d_model)
         dec_output, attention_weights = self.decoder(tar, enc_output, training, look_ahead_mask, dec_padding_mask)
-        final_output = self.final_layer(dec_output)  #
+        final_output = self.final_layer(dec_output)  # (batch_size, tar_seq_len, target_vocab_size)
+        return final_output, attention_weights
+
+    def build_graph(self, input_shape, target_shape):
+        input_
