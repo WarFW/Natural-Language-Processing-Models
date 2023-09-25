@@ -265,4 +265,7 @@ class Transformer(tf.keras.Model):
         return final_output, attention_weights
 
     def build_graph(self, input_shape, target_shape):
-        input_
+        input_shape_nobatch = input_shape[1:]
+        self.build(input_shape)
+        inputs = tf.keras.Input(shape=input_shape_nobatch)
+        if not hasattr
