@@ -274,4 +274,11 @@ class Transformer(tf.keras.Model):
 
 
 
-if __name__=
+if __name__=='__main__':
+    parmas = {
+    'num_layers':2,
+    'd_model':512,
+    'num_heads' :8,
+    'dff' :2048,
+    'input_vocab_size' : 8500,
+    'target_vocab_
