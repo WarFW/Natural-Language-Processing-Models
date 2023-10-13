@@ -281,4 +281,12 @@ if __name__=='__main__':
     'num_heads' :8,
     'dff' :2048,
     'input_vocab_size' : 8500,
-    'target_vocab_
+    'target_vocab_size' :8000,
+    'pe_input' :10000,
+    'pe_target' : 6000,
+    'rate':0.1
+    }
+
+    model = Transformer(parmas)
+    # model.build_graph(input_shape=(None, 400))
+    # 
