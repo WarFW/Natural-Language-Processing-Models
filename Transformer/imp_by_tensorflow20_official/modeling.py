@@ -289,4 +289,8 @@ if __name__=='__main__':
 
     model = Transformer(parmas)
     # model.build_graph(input_shape=(None, 400))
-    # 
+    # model.summary()
+    temp_input = tf.random.uniform((64, 62))
+    temp_target = tf.random.uniform((64, 26))
+
+    fn_out, _ = model(temp_input, temp_target, training=True
