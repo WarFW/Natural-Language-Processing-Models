@@ -293,4 +293,7 @@ if __name__=='__main__':
     temp_input = tf.random.uniform((64, 62))
     temp_target = tf.random.uniform((64, 26))
 
-    fn_out, _ = model(temp_input, temp_target, training=True
+    fn_out, _ = model(temp_input, temp_target, training=True,
+                                   enc_padding_mask=None,
+                                   look_ahead_mask=None,
+                                 
