@@ -296,4 +296,17 @@ if __name__=='__main__':
     fn_out, _ = model(temp_input, temp_target, training=True,
                                    enc_padding_mask=None,
                                    look_ahead_mask=None,
-                                 
+                                   dec_padding_mask=None)
+    print(fn_out.shape)
+
+
+
+
+
+
+
+
+
+
+
+
