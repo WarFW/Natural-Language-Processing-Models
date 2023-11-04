@@ -15,4 +15,4 @@ Each model has its own directory with respective README files. Please follow the
 
 ## Reference
 
-Trans
+Transformer model implementation is with reference to: [tensorflow2.0 official tutorials/text/transformer](https://www.tensorflow.org/tutorials/text/transformer)
